@@ -1,83 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Resistor | ElectroGuide</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components | ElectroGuide</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
     <header class="component-header">
         <a href="index.html" class="logo">⚡ ElectroGuide</a>
-
-        <a href="index.html" class="back-button">← Components</a>
+        <a href="index.html" class="back-button">← Home</a>
     </header>
 
-
-    <main class="component-page">
-
-        <div class="component-badge">
-            PASSIVE COMPONENT
-        </div>
-
-        <h1>RESISTOR</h1>
-
-        <p class="component-intro">
-            The tiny component that controls current and voltage
-            in electronic circuits.
-        </p>
-
-
-        <div class="component-main-card">
-
-            <div class="component-image">
-                <div class="resistor-symbol">〰</div>
-                <p>Resistor</p>
-            </div>
-
-
-            <div class="quick-info">
-
-                <h2>Quick Overview</h2>
-
-                <div class="fact">
-                    <span>Type</span>
-                    <strong>Passive</strong>
-                </div>
-
-                <div class="fact">
-                    <span>Unit</span>
-                    <strong>Ohm (Ω)</strong>
-                </div>
-
-                <div class="fact">
-                    <span>Terminals</span>
-                    <strong>2</strong>
-                </div>
-
-                <div class="fact">
-                    <span>Main Purpose</span>
-                    <strong>Control Current</strong>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <section class="learning-section">
-
-            <h2>🧠 What is a Resistor?</h2>
-
-            <p>
-                A resistor is a passive electronic component that
-                opposes the flow of electric current. It is used
-                to control current and voltage in electronic circuits.
-            </p>
-
-        </section>
-
+    <main class="component-page" id="component-content">
+        <p>Loading...</p>
     </main>
-<script src="script.js"></script>
+
+    <script src="script,js"></script>
+    <script>
+        const componentContent = document.getElementById("component-content");
+        const params = new URLSearchParams(window.location.search);
+        const categoryKey = params.get("category");
+        const componentName = params.get("name");
+
+        const detailData = {
+            resistor: {
+                name: "Resistor",
+                category: "Passive Components",
+                description: "A passive component that opposes current flow and is used to control current and voltage.",
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Resistors.jpg/640px-Resistors.jpg",
+                facts: [["Type", "Passive"], ["Unit", "Ohm (Ω)"], ["Terminals", "2"], ["Main Purpose", "Control current"]],
+                sections: {
+                    "What is a Resistor?": "A resistor is an electronic component that opposes the flow of electric current.",
+                    "How it Works": "When current flows through a resistor, electrical energy is dissipated as heat. Its resistance determines how much current flows for a given voltage.",
+                    "Applications": "LED circuits, voltage dividers, amplifiers, sensors, pull-up and pull-down circuits, and current limiting."
+                }
+            }
+        };
+
+        function titleFromSlug(slug) {
+            return slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+        }
+
+        if (componentName) {
+            const item = detailData[componentName] || {
+                name: titleFromSlug(componentName),
+                category: categoryKey && categories[categoryKey] ? categories[categoryKey].name : "Electronics Component",
+                description: "Detailed information for this component will be added to ElectroGuide.",
+                image: "",
+                facts: [["Category", categoryKey && categories[categoryKey] ? categories[categoryKey].name : "Electronics"]],
+                sections: {
+                    "About": "This component is part of the ElectroGuide component library.",
+                    "Applications": "Applications and technical information will be added in the next component-data update."
+                }
+            };
+
+            document.title = item.name + " | ElectroGuide";
+            componentContent.innerHTML = `
+                <div class="component-badge">${item.category}</div>
+                <h1>${item.name.toUpperCase()}</h1>
+                <p class="component-intro">${item.description}</p>
+                <div class="component-main-card">
+                    <div class="component-image">
+                        ${item.image ? `<img src="${item.image}" alt="${item.name}">` : `<div class="resistor-symbol">⚡</div>`}
+                        <p>${item.name}</p>
+                    </div>
+                    <div class="quick-info">
+                        <h2>Quick Overview</h2>
+                        ${item.facts.map(fact => `<div class="fact"><span>${fact[0]}</span><strong>${fact[1]}</strong></div>`).join("")}
+                    </div>
+                </div>
+                ${Object.entries(item.sections).map(([title, text]) => `
+                    <section class="learning-section">
+                        <h2>${title}</h2>
+                        <p>${text}</p>
+                    </section>
+                `).join("")}
+            `;
+        } else if (categoryKey && categories[categoryKey]) {
+            const category = categories[categoryKey];
+            document.title = category.name + " | ElectroGuide";
+            componentContent.innerHTML = `
+                <div class="component-badge">CATEGORY</div>
+                <h1>${category.name.toUpperCase()}</h1>
+                <p class="component-intro">Choose a component to view its detailed information.</p>
+                <div class="components">
+                    ${category.items.map(item => `
+                        <button class="category" type="button" onclick="openComponent('${item}')">
+                            ${titleFromSlug(item)}
+                        </button>
+                    `).join("")}
+                </div>
+            `;
+        } else {
+            componentContent.innerHTML = `
+                <h1>Components</h1>
+                <p class="component-intro">Choose a category from the home page.</p>
+            `;
+        }
+    </script>
 </body>
 </html>
