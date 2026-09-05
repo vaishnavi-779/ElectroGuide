@@ -1,12 +1,62 @@
 const components = {
-
     resistor: {
         name: "Resistor",
-        category: "Passive Component",
+        category: "Passive Components",
         shortDescription: "Controls the flow of current in a circuit."
     }
-
 };
+
+const categories = {
+    passive: {
+        name: "Passive Components",
+        items: ["resistor", "capacitor", "inductor", "potentiometer"]
+    },
+    diodes: {
+        name: "Diodes",
+        items: ["diode", "led", "zener-diode", "schottky-diode", "photodiode"]
+    },
+    transistors: {
+        name: "Transistors",
+        items: ["bjt", "mosfet", "jfet"]
+    },
+    ics: {
+        name: "ICs",
+        items: ["555-timer", "op-amp", "logic-ic", "voltage-regulator"]
+    },
+    sensors: {
+        name: "Sensors",
+        items: ["ldr", "thermistor", "ir-sensor", "ultrasonic-sensor"]
+    },
+    motors: {
+        name: "Motors",
+        items: ["dc-motor", "servo-motor", "stepper-motor"]
+    },
+    power: {
+        name: "Power Components",
+        items: ["battery", "fuse", "transformer", "relay"]
+    },
+    displays: {
+        name: "Displays",
+        items: ["seven-segment", "lcd", "oled"]
+    }
+};
+
 function openComponent(componentName) {
-    window.location.href = "component.html?name=" + componentName;
+    window.location.href = "component.html?name=" + encodeURIComponent(componentName);
 }
+
+function showCategory(categoryKey) {
+    const category = categories[categoryKey];
+    if (!category) return;
+
+    const params = new URLSearchParams();
+    params.set("category", categoryKey);
+    window.location.href = "component.html?" + params.toString();
+}
+
+const categoryButtons = document.querySelectorAll(".category[data-category]");
+categoryButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        showCategory(button.dataset.category);
+    });
+});
