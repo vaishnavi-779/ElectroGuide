@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ElectroGuide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>⚡ ElectroGuide</h1>
+    <p>Your Interactive Electronics Encyclopedia</p>
+    <input type="text" placeholder="🔍 Search for a component...">
+    <h2>Explore Components</h2>
+
+<div class="categories">
+
+    <div class="category">🔋 Passive Components</div>
+    <div class="category">💡 Diodes</div>
+    <div class="category">🔌 Transistors</div>
+    <div class="category">🧠 ICs</div>
+    <div class="category">🌡️ Sensors</div>
+    <div class="category">⚙️ Motors</div>
+    <div class="category">🔋 Power Components</div>
+    <div class="category">📺 Displays</div>
+
+</div>
+<h2>Popular Components</h2>
+
+<div class="components">
+
+    <div class="component"
+        onclick="openComponent('resistor')">
+    <h3>Resistor</h3>
+    <p>Controls the flow of electric current.</p>
+</div>
+    </div>
+
+    <div class="component">
+        <h3>Capacitor</h3>
+        <p>Stores electrical energy temporarily.</p>
+    </div>
+
+    <div class="component">
+        <h3>Diode</h3>
+        <p>Allows current to flow mainly in one direction.</p>
+    </div>
+
+    <div class="component">
+        <h3>LED</h3>
+        <p>Produces light when current flows through it.</p>
+    </div>
+
+</div>
+<div id="component-info" class="info-box">
+
+    <h2>Resistor</h2>
+
+    <h3>What is a Resistor?</h3>
+    <p>
+        A resistor is an electronic component that opposes the flow of electric current.
+    </p>
+
+    <h3>Function</h3>
+    <p>
+        It is mainly used to control current and divide voltage in a circuit.
+    </p>
+
+    <h3>Key Points</h3>
+    <ul>
+        <li>Measured in Ohms (Ω)</li>
+        <li>Controls current flow</li>
+        <li>Can be used for voltage division</li>
+        <li>Produces heat when it dissipates power</li>
+    </ul>
+
+    <h3>Applications</h3>
+    <p>
+        LED circuits, voltage dividers, amplifiers, sensors and many other circuits.
+    </p>
+
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>

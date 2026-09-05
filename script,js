@@ -1,0 +1,12 @@
+const components = {
+
+    resistor: {
+        name: "Resistor",
+        category: "Passive Component",
+        shortDescription: "Controls the flow of current in a circuit."
+    }
+
+};
+function openComponent(componentName) {
+    window.location.href = "component.html?name=" + componentName;
+}

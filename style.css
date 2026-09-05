@@ -1,0 +1,313 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #e1d8e1cc;
+    color: #ed5999;
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+    margin-top: 80px;
+}
+
+p {
+    font-size: 20px;
+    color: #555;
+}
+input {
+    width: 70%;
+    max-width: 600px;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+}
+h2 {
+    margin-top: 60px;
+    font-size: 28px;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.category {
+    width: 180px;
+    padding: 25px 15px;
+    border: 1px solid #333;
+    border-radius: 12px;
+    background-color: #151b23;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+}
+.components {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 900px;
+    margin: 30px auto 60px;
+}
+
+.component {
+    .components {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto 60px;
+}
+
+.component h3 {
+    margin-top: 0;
+}
+
+.component p {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.component:hover {
+    transform: translateY(-5px);
+}
+.info-box {
+    .info-box {
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #151b23;
+    border: 1px solid #333;
+    border-radius: 15px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.info-box h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.info-box h3 {
+    margin-top: 25px;
+}
+
+.info-box p,
+.info-box li {
+    color: #bbb;
+    line-height: 1.6;
+}
+/* COMPONENT PAGE */
+
+.back-button {
+    display: inline-block;
+    margin: 30px;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    color: white;
+}
+
+.component-hero {
+    width: 90%;
+    max-width: 1100px;
+    min-height: 450px;
+    margin: 40px auto;
+    padding: 50px;
+    box-sizing: border-box;
+
+    background: linear-gradient(135deg, #151b23, #0f141b);
+    border: 1px solid #333;
+    border-radius: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.component-title {
+    flex: 1;
+    text-align: left;
+}
+
+.label {
+    color: #888;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.component-title h1 {
+    font-size: 70px;
+    margin: 15px 0;
+}
+
+.tagline {
+    font-size: 20px;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.component-visual {
+    width: 300px;
+    height: 300px;
+
+    border: 1px solid #333;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #0b0f14;
+}
+
+.fake-component {
+    font-size: 120px;
+    color: white;
+}
+/* =========================
+   COMPONENT DETAIL PAGE
+   ========================= */
+
+.component-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 6%;
+    border-bottom: 1px solid #252b34;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.component-header .back-button {
+    margin: 0;
+    padding: 10px 18px;
+    border: 1px solid #333;
+    border-radius: 20px;
+}
+
+.component-page {
+    width: 90%;
+    max-width: 1100px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.component-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #444;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #aaa;
+}
+
+.component-page > h1 {
+    font-size: 72px;
+    margin: 20px 0 10px;
+    letter-spacing: 5px;
+}
+
+.component-intro {
+    max-width: 650px;
+    margin: 0 auto 50px;
+    color: #aaa;
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+.component-main-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.component-image,
+.quick-info,
+.learning-section {
+    background: #151b23;
+    border: 1px solid #2d3540;
+    border-radius: 22px;
+}
+
+.component-image {
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.resistor-symbol {
+    font-size: 120px;
+}
+
+.component-image p {
+    color: #888;
+}
+
+.quick-info {
+    padding: 35px;
+    text-align: left;
+}
+
+.quick-info h2 {
+    margin-top: 0;
+}
+
+.fact {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid #2d3540;
+}
+
+.fact span {
+    color: #888;
+}
+
+.fact strong {
+    color: white;
+}
+
+.learning-section {
+    padding: 35px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.learning-section h2 {
+    margin-top: 0;
+}
+
+.learning-section p {
+    color: #aaa;
+    line-height: 1.8;
+}
