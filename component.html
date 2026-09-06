@@ -9,133 +9,72 @@
 <body>
     <header class="component-header">
         <a href="index.html" class="logo">⚡ ElectroGuide</a>
-        <a href="index.html" class="back-button">← Home</a>
+        <div class="header-tools">
+            <div class="global-search">
+                <span>⌕</span>
+                <input id="global-search-input" type="search" placeholder="Search any component..." autocomplete="off">
+                <div id="search-results" class="search-results" aria-live="polite"></div>
+            </div>
+            <a href="index.html" class="back-button">← Home</a>
+        </div>
     </header>
 
-    <main class="component-page" id="component-content">
-        <p>Loading...</p>
-    </main>
+    <main class="component-page" id="component-content"><p>Loading...</p></main>
 
+    <script src="data.js"></script>
     <script src="script,js"></script>
     <script>
         const componentContent = document.getElementById("component-content");
         const params = new URLSearchParams(window.location.search);
         const categoryKey = params.get("category");
         const componentName = params.get("name");
+        const parent = params.get("parent");
 
-        // Component data is structured so each item can later include:
-        // image, facts, pinout, working, whyUsed, whereUsed, applications,
-        // advantages, disadvantages, specifications and project ideas.
         const detailData = {
             resistor: {
-                name: "Resistor",
-                category: "Passive Components",
+                name: "Resistor", category: "Passive Components",
                 description: "A passive component that opposes current flow and is used to control current and voltage.",
                 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Resistors.jpg/640px-Resistors.jpg",
                 facts: [["Type", "Passive"], ["Unit", "Ohm (Ω)"], ["Terminals", "2"], ["Main Purpose", "Control current"]],
                 sections: {
                     "What is a Resistor?": "A resistor is an electronic component that opposes the flow of electric current.",
                     "How it Works": "When current flows through a resistor, electrical energy is dissipated as heat. Its resistance determines how much current flows for a given voltage.",
-                    "Why is it Used?": "Resistors are used to limit current, divide voltage, set bias conditions and protect sensitive components.",
+                    "Why is it Used?": "Resistors limit current, divide voltage, set bias conditions and protect sensitive components.",
                     "Where is it Used?": "LED circuits, voltage dividers, amplifiers, sensors, digital circuits, power supplies and control systems.",
                     "Applications": "LED current limiting, voltage dividers, transistor biasing, pull-up and pull-down circuits, feedback networks and signal conditioning.",
-                    "Advantages": "Simple, inexpensive, reliable, available in many resistance and power ratings, and easy to use.",
+                    "Advantages": "Simple, inexpensive, reliable and available in many resistance and power ratings.",
                     "Disadvantages": "It dissipates power as heat and its resistance can change with temperature and tolerance."
                 }
             }
         };
 
         function titleFromSlug(slug) {
-            const specialNames = {
-                "tv-s-diode": "TVS Diode",
-                "n-channel-mosfet": "N-Channel MOSFET",
-                "p-channel-mosfet": "P-Channel MOSFET",
-                "hc-sr04": "HC-SR04",
-                "hc-05-bluetooth": "HC-05 Bluetooth",
-                "hc-06-bluetooth": "HC-06 Bluetooth",
-                "mpu6050": "MPU6050",
-                "bmp280": "BMP280",
-                "mq-2": "MQ-2 Gas Sensor",
-                "lm35": "LM35",
-                "dht11": "DHT11",
-                "dht22": "DHT22",
-                "nrf24l01": "NRF24L01",
-                "esp32-cam": "ESP32-CAM",
-                "stm32-blue-pill": "STM32 Blue Pill",
-                "pic16f877a": "PIC16F877A",
-                "rp2040": "RP2040",
-                "8051": "8051"
-            };
+            const specialNames = { "atmega16u2":"ATmega16U2 USB Interface", "16mhz-resonator":"16 MHz Clock Resonator", "5v-regulator":"5 V Voltage Regulator", "3v3-regulator":"3.3 V Regulator", "reset-circuit":"Reset Circuit", "usb-connector":"USB Connector", "dc-jack":"DC Barrel Jack", "polyfuse":"USB Polyfuse", "power-led":"Power LED", "tx-rx-leds":"TX/RX LEDs", "passive-components":"Resistors & Capacitors", "headers":"Pin Headers", "tv-s-diode":"TVS Diode", "n-channel-mosfet":"N-Channel MOSFET", "p-channel-mosfet":"P-Channel MOSFET", "hc-sr04":"HC-SR04", "hc-05-bluetooth":"HC-05 Bluetooth", "hc-06-bluetooth":"HC-06 Bluetooth", "mpu6050":"MPU6050", "bmp280":"BMP280", "mq-2":"MQ-2 Gas Sensor", "lm35":"LM35", "dht11":"DHT11", "dht22":"DHT22", "nrf24l01":"NRF24L01", "esp32-cam":"ESP32-CAM", "stm32-blue-pill":"STM32 Blue Pill", "pic16f877a":"PIC16F877A", "rp2040":"RP2040", "8051":"8051" };
             if (specialNames[slug]) return specialNames[slug];
             return slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
         }
 
+        function renderInternalComponents(items) {
+            if (!items) return "";
+            return `<section class="internal-section"><div class="section-heading"><span>02</span><h2>Inside this board</h2></div><p class="section-note">Click a component to learn what it does inside the Arduino Uno R3.</p><div class="internal-grid">${items.map(part => `<button class="internal-card" type="button" onclick="openComponent('${part.id}')"><strong>${part.name}</strong><span>${part.description}</span><em>View component →</em></button>`).join("")}</div></section>`;
+        }
+
         function renderComponent(item) {
             const facts = item.facts || [["Category", item.category]];
-            const sections = item.sections || {
-                "About": "This component is part of the ElectroGuide component library. Detailed technical information will be added as the component database is populated.",
-                "How it Works": "The working principle, important characteristics and operating conditions will be documented here.",
-                "Why is it Used?": "Practical reasons for using this component will be documented here.",
-                "Where is it Used?": "Common circuits, devices and systems using this component will be documented here.",
-                "Applications": "Real-world applications and ECE project examples will be added here.",
-                "Advantages": "Key advantages will be documented here.",
-                "Disadvantages": "Important limitations and precautions will be documented here."
-            };
-
-            return `
-                <div class="component-badge">${item.category}</div>
-                <h1>${item.name.toUpperCase()}</h1>
-                <p class="component-intro">${item.description}</p>
-                <div class="component-main-card">
-                    <div class="component-image">
-                        ${item.image ? `<img src="${item.image}" alt="${item.name}">` : `<div class="resistor-symbol">⚡</div>`}
-                        <p>${item.name}</p>
-                    </div>
-                    <div class="quick-info">
-                        <h2>Quick Specifications</h2>
-                        ${facts.map(fact => `<div class="fact"><span>${fact[0]}</span><strong>${fact[1]}</strong></div>`).join("")}
-                    </div>
-                </div>
-                ${Object.entries(sections).map(([title, text]) => `
-                    <section class="learning-section">
-                        <h2>${title}</h2>
-                        <p>${text}</p>
-                    </section>
-                `).join("")}
-            `;
+            const sections = item.sections || { "About": "This component is part of the ElectroGuide library. Its detailed technical entry will be expanded during the component database phase." };
+            return `<div class="component-badge">${item.category}</div><h1>${item.name.toUpperCase()}</h1><p class="component-intro">${item.description}</p><div class="component-main-card"><div class="component-image">${item.image ? `<img src="${item.image}" alt="${item.name}">` : `<div class="resistor-symbol">⚡</div>`}<p>${item.name}</p></div><div class="quick-info"><h2>Quick Specifications</h2>${facts.map(fact => `<div class="fact"><span>${fact[0]}</span><strong>${fact[1]}</strong></div>`).join("")}</div></div>${Object.entries(sections).map(([title, text]) => `<section class="learning-section"><h2>${title}</h2><p>${text}</p></section>`).join("")}${renderInternalComponents(item.internalComponents)}${parent ? `<a class="parent-link" href="component.html?name=${encodeURIComponent(parent)}">← Back to ${titleFromSlug(parent)}</a>` : ""}`;
         }
 
         if (componentName) {
-            const item = detailData[componentName] || {
-                name: titleFromSlug(componentName),
-                category: categoryKey && categories[categoryKey] ? categories[categoryKey].name : "Electronics Component",
-                description: "This component is part of the ElectroGuide library. Its complete image, specifications, working principle, uses, applications and project information will be populated in the component-data phase.",
-                image: "",
-                facts: [["Category", categoryKey && categories[categoryKey] ? categories[categoryKey].name : "Electronics"], ["Status", "Database entry ready"]]
-            };
-
+            const item = detailData[componentName] || electroGuideDetails[componentName] || electroGuideInternalDetails[componentName] || { name: titleFromSlug(componentName), category: categoryKey && categories[categoryKey] ? categories[categoryKey].name : "Electronics Component", description: "This component is part of the ElectroGuide library. Its complete image, specifications, working principle, uses, applications and project information will be populated in the component database.", facts: [["Category", categoryKey && categories[categoryKey] ? categories[categoryKey].name : "Electronics"], ["Status", "Database entry ready"]] };
             document.title = item.name + " | ElectroGuide";
             componentContent.innerHTML = renderComponent(item);
         } else if (categoryKey && categories[categoryKey]) {
             const category = categories[categoryKey];
             document.title = category.name + " | ElectroGuide";
-            componentContent.innerHTML = `
-                <div class="component-badge">COMPONENT LIBRARY</div>
-                <h1>${category.name.toUpperCase()}</h1>
-                <p class="component-intro">${category.items.length} components in this collection. Select any component to open its information page.</p>
-                <div class="components">
-                    ${category.items.map(item => `
-                        <button class="category" type="button" onclick="openComponent('${item}')">
-                            ${titleFromSlug(item)}
-                        </button>
-                    `).join("")}
-                </div>
-            `;
+            componentContent.innerHTML = `<div class="component-badge">COMPONENT LIBRARY</div><h1>${category.name.toUpperCase()}</h1><p class="component-intro">${category.items.length} components in this collection. Select any component to open its information page.</p><div class="components">${category.items.map(item => `<button class="category" type="button" onclick="openComponent('${item}')">${titleFromSlug(item)}</button>`).join("")}</div>`;
         } else {
-            componentContent.innerHTML = `
-                <h1>Components</h1>
-                <p class="component-intro">Choose a category from the home page.</p>
-            `;
+            componentContent.innerHTML = `<h1>Components</h1><p class="component-intro">Choose a category from the home page.</p>`;
         }
     </script>
 </body>
