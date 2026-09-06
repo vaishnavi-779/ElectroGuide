@@ -3,31 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElectroGuide</title>
+    <title>ElectroGuide | Electronics Encyclopedia</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="site-header">
         <a href="index.html" class="logo">⚡ ElectroGuide</a>
+        <span class="header-tag">ECE • LEARN • BUILD</span>
     </header>
 
     <main class="home-page">
         <section class="home-hero">
+            <div class="circuit-decoration" aria-hidden="true">●─────●─────●</div>
+            <p class="eyebrow">ELECTRONICS • COMPONENTS • PROJECTS</p>
             <h1>ElectroGuide</h1>
             <p>Your Interactive Electronics Encyclopedia</p>
+            <span class="hero-subtitle">Explore electronics. Understand how every component works.</span>
         </section>
 
-        <div class="category-grid" id="category-grid">
-            <button class="category" data-category="passive">🔋 Passive Components</button>
-            <button class="category" data-category="diodes">💡 Diodes</button>
-            <button class="category" data-category="transistors">🔌 Transistors</button>
-            <button class="category" data-category="ics">🧠 ICs</button>
-            <button class="category" data-category="sensors">🌡️ Sensors</button>
-            <button class="category" data-category="motors">⚙️ Motors</button>
-            <button class="category" data-category="power">🔋 Power Components</button>
-            <button class="category" data-category="displays">📺 Displays</button>
-        </div>
+        <section class="category-section">
+            <div class="section-heading">
+                <span>01</span>
+                <h2>Explore Electronics</h2>
+            </div>
+            <div class="category-grid" id="category-grid">
+                <button class="category" data-category="passive"><span class="category-icon">🔋</span><span>Passive Components</span><small>Resistors, capacitors & more</small></button>
+                <button class="category" data-category="diodes"><span class="category-icon">💡</span><span>Diodes</span><small>Rectification, LEDs & protection</small></button>
+                <button class="category" data-category="transistors"><span class="category-icon">🔌</span><span>Transistors</span><small>Switching & amplification</small></button>
+                <button class="category" data-category="ics"><span class="category-icon">🧠</span><span>ICs</span><small>Timers, amplifiers & logic</small></button>
+                <button class="category" data-category="sensors"><span class="category-icon">🌡️</span><span>Sensors</span><small>Measure the physical world</small></button>
+                <button class="category" data-category="motors"><span class="category-icon">⚙️</span><span>Motors</span><small>Motion & actuation</small></button>
+                <button class="category" data-category="power"><span class="category-icon">🔋</span><span>Power Components</span><small>Supply, conversion & protection</small></button>
+                <button class="category" data-category="displays"><span class="category-icon">📺</span><span>Displays</span><small>LED, LCD, OLED & more</small></button>
+                <button class="category featured-category" data-category="microcontrollers"><span class="category-icon">🖥️</span><span>Microcontrollers</span><small>Arduino, ESP32, STM32 & more</small></button>
+                <button class="category featured-category" data-category="project-components"><span class="category-icon">🛠️</span><span>ECE Project Components</span><small>Modules & parts for real projects</small></button>
+            </div>
+        </section>
     </main>
+
+    <footer class="site-footer">⚡ ElectroGuide — Learn it. Build it. Understand it.</footer>
 
     <script src="script,js"></script>
 </body>
