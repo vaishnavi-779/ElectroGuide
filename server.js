@@ -23,8 +23,10 @@ app.post("/api/ask",async(req,res)=>{
     });
     res.json({answer:response.output_text||"I could not generate an answer."});
   }catch(error){
-    console.error(error);
-    res.status(500).json({error:"ElectroAI could not answer right now. Please try again."});
+    console.error("ElectroAI API error:",error);
+    const status=error?.status||500;
+    const message=error?.error?.message||error?.message||"Unknown server error";
+    res.status(status).json({error:`ElectroAI API error (${status}): ${message}`});
   }
 });
 
