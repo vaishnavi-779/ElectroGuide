@@ -1,58 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElectroGuide | Electronics Encyclopedia</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ElectroGuide | Electronics Encyclopedia</title><link rel="stylesheet" href="style.css"></head>
 <body>
-    <header class="site-header">
-        <a href="index.html" class="logo">⚡ ElectroGuide</a>
-        <div class="header-tools">
-            <div class="global-search">
-                <span>⌕</span>
-                <input id="global-search-input" type="search" placeholder="Search any component..." autocomplete="off">
-                <div id="search-results" class="search-results" aria-live="polite"></div>
-            </div>
-            <span class="header-tag">ECE • LEARN • BUILD</span>
-        </div>
-    </header>
-
-    <main class="home-page">
-        <section class="home-hero">
-            <div class="circuit-decoration" aria-hidden="true">●─────●─────●</div>
-            <p class="eyebrow">ELECTRONICS • COMPONENTS • PROJECTS</p>
-            <h1>ElectroGuide</h1>
-            <p>Your Interactive Electronics Encyclopedia</p>
-            <span class="hero-subtitle">Explore electronics. Understand how every component works.</span>
-        </section>
-
-        <section class="ai-banner">
-            <div><span class="ai-label">ELECTROAI</span><h2>Ask questions about electronics</h2><p>Search components now. AI-powered explanations will be added through a secure backend in the next phase.</p></div>
-            <span class="ai-icon">✦</span>
-        </section>
-
-        <section class="category-section">
-            <div class="section-heading"><span>01</span><h2>Explore Electronics</h2></div>
-            <div class="category-grid" id="category-grid">
-                <button class="category" data-category="passive"><span class="category-icon">🔋</span><span>Passive Components</span><small>Resistors, capacitors & more</small></button>
-                <button class="category" data-category="diodes"><span class="category-icon">💡</span><span>Diodes</span><small>Rectification, LEDs & protection</small></button>
-                <button class="category" data-category="transistors"><span class="category-icon">🔌</span><span>Transistors</span><small>Switching & amplification</small></button>
-                <button class="category" data-category="ics"><span class="category-icon">🧠</span><span>ICs</span><small>Timers, amplifiers & logic</small></button>
-                <button class="category" data-category="sensors"><span class="category-icon">🌡️</span><span>Sensors</span><small>Measure the physical world</small></button>
-                <button class="category" data-category="motors"><span class="category-icon">⚙️</span><span>Motors</span><small>Motion & actuation</small></button>
-                <button class="category" data-category="power"><span class="category-icon">🔋</span><span>Power Components</span><small>Supply, conversion & protection</small></button>
-                <button class="category" data-category="displays"><span class="category-icon">📺</span><span>Displays</span><small>LED, LCD, OLED & more</small></button>
-                <button class="category featured-category" data-category="microcontrollers"><span class="category-icon">🖥️</span><span>Microcontrollers</span><small>Arduino, ESP32, STM32 & more</small></button>
-                <button class="category featured-category" data-category="project-components"><span class="category-icon">🛠️</span><span>ECE Project Components</span><small>Modules & parts for real projects</small></button>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">⚡ ElectroGuide — Learn it. Build it. Understand it.</footer>
-
-    <script src="data.js"></script>
-    <script src="script,js"></script>
-</body>
-</html>
+<header class="site-header"><a href="index.html" class="logo">⚡ ElectroGuide</a><div class="header-tools"><div class="global-search"><span>⌕</span><input id="global-search-input" type="search" placeholder="Search any component..." autocomplete="off"><div id="search-results" class="search-results" aria-live="polite"></div></div><span class="header-tag">ECE • LEARN • BUILD</span></div></header>
+<main class="home-page">
+<section class="home-hero"><div class="circuit-decoration" aria-hidden="true">●─────●─────●</div><p class="eyebrow">ELECTRONICS • COMPONENTS • PROJECTS</p><h1>ElectroGuide</h1><p>Your Interactive Electronics Encyclopedia</p><span class="hero-subtitle">Explore electronics. Understand how every component works.</span></section>
+<section class="ai-banner"><div><span class="ai-label">ELECTROAI</span><h2>Ask ElectroAI</h2><p>Ask electronics questions and get explanations, calculations, component guidance and project help.</p></div><span class="ai-icon">✦</span></section>
+<section class="ai-chat" aria-label="ElectroAI chat"><div class="ai-chat-head"><div><strong>ElectroAI Tutor</strong><small>Electronics • ECE • Embedded Systems</small></div><span>● ONLINE</span></div><div id="ai-answer" class="ai-answer">Ask me something like <b>“How does a MOSFET work?”</b> or <b>“Which sensor should I use for temperature?”</b></div><div class="ai-input-row"><textarea id="ai-question" rows="2" placeholder="Ask any electronics question..."></textarea><button id="ai-ask-button" type="button">Ask AI →</button></div></section>
+<section class="category-section"><div class="section-heading"><span>01</span><h2>Explore Electronics</h2></div><div class="category-grid" id="category-grid">
+<button class="category" data-category="passive"><span class="category-icon">🔋</span><span>Passive Components</span><small>Resistors, capacitors & more</small></button><button class="category" data-category="diodes"><span class="category-icon">💡</span><span>Diodes</span><small>Rectification, LEDs & protection</small></button><button class="category" data-category="transistors"><span class="category-icon">🔌</span><span>Transistors</span><small>Switching & amplification</small></button><button class="category" data-category="ics"><span class="category-icon">🧠</span><span>ICs</span><small>Timers, amplifiers & logic</small></button><button class="category" data-category="sensors"><span class="category-icon">🌡️</span><span>Sensors</span><small>Measure the physical world</small></button><button class="category" data-category="motors"><span class="category-icon">⚙️</span><span>Motors</span><small>Motion & actuation</small></button><button class="category" data-category="power"><span class="category-icon">🔋</span><span>Power Components</span><small>Supply, conversion & protection</small></button><button class="category" data-category="displays"><span class="category-icon">📺</span><span>Displays</span><small>LED, LCD, OLED & more</small></button><button class="category featured-category" data-category="microcontrollers"><span class="category-icon">🖥️</span><span>Microcontrollers</span><small>Arduino, ESP32, STM32 & more</small></button><button class="category featured-category" data-category="project-components"><span class="category-icon">🛠️</span><span>ECE Project Components</span><small>Modules & parts for real projects</small></button>
+</div></section></main><footer class="site-footer">⚡ ElectroGuide — Learn it. Build it. Understand it.</footer><script src="data.js"></script><script src="script,js"></script></body></html>
