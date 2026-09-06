@@ -9,7 +9,14 @@
 <body>
     <header class="site-header">
         <a href="index.html" class="logo">⚡ ElectroGuide</a>
-        <span class="header-tag">ECE • LEARN • BUILD</span>
+        <div class="header-tools">
+            <div class="global-search">
+                <span>⌕</span>
+                <input id="global-search-input" type="search" placeholder="Search any component..." autocomplete="off">
+                <div id="search-results" class="search-results" aria-live="polite"></div>
+            </div>
+            <span class="header-tag">ECE • LEARN • BUILD</span>
+        </div>
     </header>
 
     <main class="home-page">
@@ -21,11 +28,13 @@
             <span class="hero-subtitle">Explore electronics. Understand how every component works.</span>
         </section>
 
+        <section class="ai-banner">
+            <div><span class="ai-label">ELECTROAI</span><h2>Ask questions about electronics</h2><p>Search components now. AI-powered explanations will be added through a secure backend in the next phase.</p></div>
+            <span class="ai-icon">✦</span>
+        </section>
+
         <section class="category-section">
-            <div class="section-heading">
-                <span>01</span>
-                <h2>Explore Electronics</h2>
-            </div>
+            <div class="section-heading"><span>01</span><h2>Explore Electronics</h2></div>
             <div class="category-grid" id="category-grid">
                 <button class="category" data-category="passive"><span class="category-icon">🔋</span><span>Passive Components</span><small>Resistors, capacitors & more</small></button>
                 <button class="category" data-category="diodes"><span class="category-icon">💡</span><span>Diodes</span><small>Rectification, LEDs & protection</small></button>
@@ -43,6 +52,7 @@
 
     <footer class="site-footer">⚡ ElectroGuide — Learn it. Build it. Understand it.</footer>
 
+    <script src="data.js"></script>
     <script src="script,js"></script>
 </body>
 </html>
