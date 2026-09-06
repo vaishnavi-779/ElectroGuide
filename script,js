@@ -9,35 +9,75 @@ const components = {
 const categories = {
     passive: {
         name: "Passive Components",
-        items: ["resistor", "capacitor", "inductor", "potentiometer"]
+        items: [
+            "resistor", "capacitor", "inductor", "potentiometer", "thermistor",
+            "ldr", "varistor", "trimmer", "rheostat", "ferrite-bead",
+            "crystal", "supercapacitor", "ntc-thermistor", "ptc-thermistor", "mov",
+            "emi-filter", "ceramic-capacitor", "electrolytic-capacitor", "film-capacitor", "tantalum-capacitor"
+        ]
     },
     diodes: {
         name: "Diodes",
-        items: ["diode", "led", "zener-diode", "schottky-diode", "photodiode"]
+        items: [
+            "diode", "led", "zener-diode", "schottky-diode", "photodiode",
+            "laser-diode", "avalanche-diode", "tunnel-diode", "varactor-diode", "tv-s-diode",
+            "rectifier-diode", "signal-diode", "fast-recovery-diode", "power-diode", "pin-diode",
+            "germanium-diode", "silicon-diode", "infrared-led", "rgb-led", "photovoltaic-diode"
+        ]
     },
     transistors: {
         name: "Transistors",
-        items: ["bjt", "mosfet", "jfet"]
+        items: [
+            "bjt", "mosfet", "jfet", "npn-transistor", "pnp-transistor",
+            "n-channel-mosfet", "p-channel-mosfet", "igbt", "darlington-transistor", "phototransistor",
+            "unijunction-transistor", "thin-film-transistor", "rf-transistor", "power-transistor", "small-signal-transistor",
+            "switching-transistor", "bipolar-transistor", "enhancement-mosfet", "depletion-mosfet", "high-frequency-transistor"
+        ]
     },
     ics: {
         name: "ICs",
-        items: ["555-timer", "op-amp", "logic-ic", "voltage-regulator"]
+        items: [
+            "555-timer", "op-amp", "logic-ic", "voltage-regulator", "microcontroller",
+            "microprocessor", "adc", "dac", "comparator-ic", "timer-ic",
+            "counter-ic", "shift-register", "multiplexer-ic", "demultiplexer-ic", "flip-flop-ic",
+            "memory-ic", "eeprom", "rom-ic", "audio-amplifier-ic", "motor-driver-ic"
+        ]
     },
     sensors: {
         name: "Sensors",
-        items: ["ldr", "thermistor", "ir-sensor", "ultrasonic-sensor"]
+        items: [
+            "ldr", "thermistor", "ir-sensor", "ultrasonic-sensor", "temperature-sensor",
+            "humidity-sensor", "pressure-sensor", "gas-sensor", "touch-sensor", "proximity-sensor",
+            "motion-sensor", "pir-sensor", "hall-effect-sensor", "accelerometer", "gyroscope",
+            "tilt-sensor", "sound-sensor", "flame-sensor", "rain-sensor", "soil-moisture-sensor"
+        ]
     },
     motors: {
         name: "Motors",
-        items: ["dc-motor", "servo-motor", "stepper-motor"]
+        items: [
+            "dc-motor", "servo-motor", "stepper-motor", "brushless-dc-motor", "ac-motor",
+            "induction-motor", "synchronous-motor", "universal-motor", "geared-motor", "vibration-motor",
+            "linear-motor", "coreless-motor", "pancake-motor", "hobby-motor", "torque-motor",
+            "reluctance-motor", "switched-reluctance-motor", "permanent-magnet-motor", "motor-generator", "actuator"
+        ]
     },
     power: {
         name: "Power Components",
-        items: ["battery", "fuse", "transformer", "relay"]
+        items: [
+            "battery", "fuse", "transformer", "relay", "power-supply",
+            "bridge-rectifier", "voltage-regulator", "dc-dc-converter", "ac-dc-converter", "inverter",
+            "charger", "adapter", "circuit-breaker", "varistor", "power-diode",
+            "power-mosfet", "igbt", "zener-diode", "current-sensor", "power-factor-controller"
+        ]
     },
     displays: {
         name: "Displays",
-        items: ["seven-segment", "lcd", "oled"]
+        items: [
+            "seven-segment", "lcd", "oled", "led-matrix", "dot-matrix-display",
+            "character-lcd", "graphic-lcd", "tft-display", "amoled-display", "e-ink-display",
+            "vacuum-fluorescent-display", "nixie-tube", "bar-graph-display", "seven-segment-common-anode", "seven-segment-common-cathode",
+            "rgb-led-display", "touchscreen-display", "numeric-display", "alphanumeric-display", "micro-led-display"
+        ]
     }
 };
 
