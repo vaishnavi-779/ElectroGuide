@@ -78,6 +78,24 @@ const categories = {
             "vacuum-fluorescent-display", "nixie-tube", "bar-graph-display", "seven-segment-common-anode", "seven-segment-common-cathode",
             "rgb-led-display", "touchscreen-display", "numeric-display", "alphanumeric-display", "micro-led-display"
         ]
+    },
+    microcontrollers: {
+        name: "Microcontrollers",
+        items: [
+            "arduino-uno", "arduino-nano", "arduino-mega", "arduino-pro-mini", "atmega328p",
+            "atmega2560", "attiny85", "esp8266", "esp32", "esp32-cam",
+            "nodemcu", "stm32", "stm32-blue-pill", "stm32-nucleo", "pic16f877a",
+            "pic18", "8051", "rp2040", "raspberry-pi-pico", "msp430"
+        ]
+    },
+    "project-components": {
+        name: "ECE Project Components",
+        items: [
+            "hc-05-bluetooth", "hc-06-bluetooth", "gsm-module", "gps-module", "lora-module",
+            "nrf24l01", "motor-driver", "l298n", "l293d", "relay-module",
+            "dht11", "dht22", "lm35", "mq-2", "hc-sr04",
+            "mpu6050", "bmp280", "pir-module", "soil-moisture-module", "buzzer-module"
+        ]
     }
 };
 
