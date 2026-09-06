@@ -29,10 +29,31 @@ body {
 .home-page {
     width: 90%;
     max-width: 1000px;
-    margin: 70px auto;
+    margin: 50px auto 70px;
 }
 
-.category-grid {
+.home-hero {
+    text-align: center;
+    margin: 20px auto 55px;
+}
+
+.home-hero h1 {
+    margin: 0;
+    color: #151b23;
+    font-size: clamp(56px, 9vw, 96px);
+    line-height: 1;
+    letter-spacing: 4px;
+}
+
+.home-hero p {
+    margin: 18px 0 0;
+    color: #555;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 500;
+}
+
+.category-grid,
+.components {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
@@ -55,6 +76,12 @@ body {
     transform: translateY(-5px);
     border-color: #ed5999;
     outline: none;
+}
+
+.components .category {
+    min-height: 95px;
+    text-align: left;
+    font-size: 19px;
 }
 
 .back-button {
@@ -180,12 +207,17 @@ body {
 
 @media (max-width: 700px) {
     .category-grid,
+    .components,
     .component-main-card {
         grid-template-columns: 1fr;
     }
 
     .home-page {
         margin: 40px auto;
+    }
+
+    .home-hero {
+        margin-bottom: 40px;
     }
 
     .component-page > h1 {
