@@ -1,7 +1,58 @@
 const categories={passive:{name:"Passive Components",items:["resistor","capacitor","inductor","potentiometer","thermistor","ldr","varistor","trimmer","rheostat","ferrite-bead","crystal","supercapacitor","ntc-thermistor","ptc-thermistor","mov","emi-filter","ceramic-capacitor","electrolytic-capacitor","film-capacitor","tantalum-capacitor"]},diodes:{name:"Diodes",items:["diode","led","zener-diode","schottky-diode","photodiode","laser-diode","avalanche-diode","tunnel-diode","varactor-diode","tv-s-diode","rectifier-diode","signal-diode","fast-recovery-diode","power-diode","pin-diode","germanium-diode","silicon-diode","infrared-led","rgb-led","photovoltaic-diode"]},transistors:{name:"Transistors",items:["bjt","mosfet","jfet","npn-transistor","pnp-transistor","n-channel-mosfet","p-channel-mosfet","igbt","darlington-transistor","phototransistor","unijunction-transistor","thin-film-transistor","rf-transistor","power-transistor","small-signal-transistor","switching-transistor","bipolar-transistor","enhancement-mosfet","depletion-mosfet","high-frequency-transistor"]},ics:{name:"ICs",items:["555-timer","op-amp","logic-ic","voltage-regulator","microcontroller","microprocessor","adc","dac","comparator-ic","timer-ic","counter-ic","shift-register","multiplexer-ic","demultiplexer-ic","flip-flop-ic","memory-ic","eeprom","rom-ic","audio-amplifier-ic","motor-driver-ic"]},sensors:{name:"Sensors",items:["ldr","thermistor","ir-sensor","ultrasonic-sensor","temperature-sensor","humidity-sensor","pressure-sensor","gas-sensor","touch-sensor","proximity-sensor","motion-sensor","pir-sensor","hall-effect-sensor","accelerometer","gyroscope","tilt-sensor","sound-sensor","flame-sensor","rain-sensor","soil-moisture-sensor"]},motors:{name:"Motors",items:["dc-motor","servo-motor","stepper-motor","brushless-dc-motor","ac-motor","induction-motor","synchronous-motor","universal-motor","geared-motor","vibration-motor","linear-motor","coreless-motor","pancake-motor","hobby-motor","torque-motor","reluctance-motor","switched-reluctance-motor","permanent-magnet-motor","motor-generator","actuator"]},power:{name:"Power Components",items:["battery","fuse","transformer","relay","power-supply","bridge-rectifier","voltage-regulator","dc-dc-converter","ac-dc-converter","inverter","charger","adapter","circuit-breaker","varistor","power-diode","power-mosfet","igbt","zener-diode","current-sensor","power-factor-controller"]},displays:{name:"Displays",items:["seven-segment","lcd","oled","led-matrix","dot-matrix-display","character-lcd","graphic-lcd","tft-display","amoled-display","e-ink-display","vacuum-fluorescent-display","nixie-tube","bar-graph-display","seven-segment-common-anode","seven-segment-common-cathode","rgb-led-display","touchscreen-display","numeric-display","alphanumeric-display","micro-led-display"]},microcontrollers:{name:"Microcontrollers",items:["arduino-uno","arduino-nano","arduino-mega","arduino-pro-mini","atmega328p","atmega2560","attiny85","esp8266","esp32","esp32-cam","nodemcu","stm32","stm32-blue-pill","stm32-nucleo","pic16f877a","pic18","8051","rp2040","raspberry-pi-pico","msp430"]},"project-components":{name:"ECE Project Components",items:["hc-05-bluetooth","hc-06-bluetooth","gsm-module","gps-module","lora-module","nrf24l01","motor-driver","l298n","l293d","relay-module","dht11","dht22","lm35","mq-2","hc-sr04","mpu6050","bmp280","pir-module","soil-moisture-module","buzzer-module"]}};
 hydrateElectroGuideDetails(categories);
+
+// Give every microcontroller/board a clickable internal hardware map.
+function addInternalHardware(){
+  const common=(id,name,description)=>({id:id+"-"+name.toLowerCase().replace(/[^a-z0-9]+/g,"-"),name,description});
+  const templates={
+    "esp32":[
+      {id:"esp32-soc",name:"ESP32 SoC / MCU",description:"Main dual-core microcontroller that provides processing, GPIO, Wi-Fi, Bluetooth, ADC, DAC, timers and communication peripherals."},
+      {id:"esp32-wroom",name:"ESP32-WROOM Module",description:"The shielded module containing the ESP32 SoC, memory and RF circuitry on common development boards."},
+      {id:"esp32-flash",name:"SPI Flash Memory",description:"Non-volatile memory used to store firmware, program data and other application resources."},
+      {id:"esp32-crystal",name:"40 MHz Crystal Oscillator",description:"Clock reference used by the ESP32 system and radio circuitry."},
+      {id:"esp32-antenna",name:"PCB Antenna",description:"Printed antenna used for the board's 2.4 GHz wireless communication on boards with an onboard antenna."},
+      {id:"esp32-usb-uart",name:"USB-to-UART Bridge",description:"Converts USB data from the computer to UART serial data used to program and communicate with the ESP32 on typical DevKit boards."},
+      {id:"esp32-regulator",name:"3.3 V Voltage Regulator",description:"Converts the board input supply to the regulated 3.3 V rail required by the ESP32."},
+      {id:"esp32-boot",name:"BOOT Button",description:"Places the ESP32 into firmware download mode when used with the EN/reset control."},
+      {id:"esp32-en",name:"EN / Reset Button",description:"Resets or enables the ESP32 module."},
+      {id:"esp32-power-led",name:"Power LED",description:"Indicates that board power is present."},
+      {id:"esp32-headers",name:"GPIO Pin Headers",description:"Expose GPIO, power and peripheral signals for sensors, displays, drivers and other circuits."},
+      {id:"esp32-decoupling",name:"Decoupling Capacitors",description:"Smooth local supply voltage and reduce high-frequency power noise around the MCU and regulator."}
+    ],
+    "esp8266":["ESP8266 SoC","SPI Flash","Crystal Oscillator","Wi-Fi RF Section","PCB Antenna","3.3 V Regulator","USB-to-UART Bridge","Reset/Boot Circuit","GPIO Headers"],
+    "arduino-nano":["ATmega328P MCU","USB Interface","16 MHz Clock","5 V Regulator","USB Connector","Reset Circuit","Power LED","GPIO Headers","Resistors & Capacitors"],
+    "arduino-mega":["ATmega2560 MCU","ATmega16U2 USB Interface","16 MHz Clock","Voltage Regulators","USB Connector","Reset Circuit","Power LED","TX/RX LEDs","GPIO Headers"],
+    "arduino-pro-mini":["ATmega328P MCU","16 MHz Clock","Voltage Regulator","Reset Circuit","Power LED","GPIO Headers","Decoupling Capacitors"],
+    "nodemcu":["ESP8266 Module","USB-to-UART Bridge","3.3 V Regulator","Flash Memory","PCB Antenna","Reset/Flash Buttons","Power LED","GPIO Headers"],
+    "stm32":["STM32 MCU","Flash Memory","SRAM","Clock Oscillator","Voltage Regulator","Reset Circuit","Debug Interface","GPIO Headers","Decoupling Capacitors"],
+    "stm32-blue-pill":["STM32F103C8T6 MCU","8 MHz Crystal","32.768 kHz Crystal","3.3 V Regulator","USB Connector","Reset Circuit","BOOT Pins","GPIO Headers"],
+    "stm32-nucleo":["STM32 MCU","ST-LINK Debugger","USB Connector","Clock Source","Power Regulation","User LED","User Button","Arduino-compatible Headers","Morpho Headers"],
+    "rp2040":["RP2040 MCU","Dual-core ARM Cortex-M0+","QSPI Flash","12 MHz Crystal","Voltage Regulator","USB Interface","BOOTSEL Circuit","GPIO Headers"],
+    "raspberry-pi-pico":["RP2040 MCU","QSPI Flash","12 MHz Crystal","3.3 V Regulator","USB Interface","BOOTSEL Button","Power LED","GPIO Headers"],
+    "atmega328p":["AVR CPU Core","Flash Memory","SRAM","EEPROM","Timers/Counters","ADC","USART/SPI/I2C Peripherals","GPIO Ports","Clock Oscillator"],
+    "atmega2560":["AVR CPU Core","Flash Memory","SRAM","EEPROM","ADC","Timers","USART Interfaces","SPI/I2C","GPIO Ports","Clock Oscillator"],
+    "attiny85":["AVR CPU Core","Flash Memory","SRAM","EEPROM","ADC","Timers","GPIO Pins","Clock Source"],
+    "pic16f877a":["PIC CPU Core","Flash Program Memory","RAM","EEPROM","ADC","Timers","USART","SPI/I2C","GPIO Ports","Oscillator Circuit"],
+    "pic18":["PIC18 CPU Core","Flash Memory","RAM","EEPROM","Timers","ADC","Communication Peripherals","GPIO Ports","Oscillator"],
+    "8051":["8051 CPU Core","Program Memory","RAM","Timers/Counters","Serial Port","Interrupt Controller","GPIO Ports","Oscillator"],
+    "msp430":["MSP430 CPU Core","Flash Memory","RAM","Timers","ADC","Low-power Clock System","GPIO","Serial Interfaces"]
+  };
+  Object.entries(categories.microcontrollers.items.reduce((o,id)=>(o[id]=1,o),{})).forEach(()=>{});
+  Object.keys(templates).forEach(id=>{
+    const d=electroGuideDetails[id]; if(!d)return;
+    const list=templates[id];
+    if(id==="esp32") d.internalComponents=list;
+    else d.internalComponents=list.map(x=>typeof x==="string"?common(id,x,`${x} is a functional hardware block used inside or alongside this microcontroller board/device.`):x);
+  });
+  categories.microcontrollers.items.forEach(id=>{
+    const d=electroGuideDetails[id]; if(!d||d.internalComponents)return;
+    d.internalComponents=[common(id,"Main MCU / Processor",`The processing device that executes firmware for ${d.name}.`),common(id,"Memory",`Program and working memory used by ${d.name}.`),common(id,"Clock / Oscillator","Provides the timing reference for processor and peripheral operation."),common(id,"Power Regulation","Provides suitable regulated power to the controller and board."),common(id,"GPIO / Pin Headers","Expose digital, analog and peripheral signals for external circuits."),common(id,"Reset / Boot Circuit","Controls startup, reset and programming modes where supported."),common(id,"Decoupling Capacitors","Help stabilize local power rails and reduce supply noise.")];
+  });
+}
+addInternalHardware();
+
 function openComponent(name,parent){let u="component.html?name="+encodeURIComponent(name);if(parent)u+="&parent="+encodeURIComponent(parent);location.href=u;}
 function showCategory(key){if(categories[key])location.href="component.html?category="+encodeURIComponent(key);}
-function buildSearchIndex(){const a=[];Object.values(categories).forEach(c=>c.items.forEach(id=>{const d=electroGuideDetails[id]||electroGuideInternalDetails[id];a.push({id,name:d?.name||titleFromSlugForData(id),category:d?.category||c.name,description:d?.description||"Electronics component",keywords:`${id} ${d?.name||""} ${c.name} ${d?.description||""}`.toLowerCase()})}));return a}const electroGuideSearchIndex=buildSearchIndex();
+function buildSearchIndex(){const a=[];Object.values(categories).forEach(c=>c.items.forEach(id=>{const d=electroGuideDetails[id]||electroGuideInternalDetails[id];a.push({id,name:d?.name||titleFromSlugForData(id),category:d?.category||c.name,description:d?.description||"Electronics component",keywords:`${id} ${d?.name||""} ${c.name} ${d?.description||""}`.toLowerCase()})}));Object.entries(electroGuideInternalDetails).forEach(([id,d])=>a.push({id,name:d.name,category:d.category,description:d.description,keywords:`${id} ${d.name} ${d.category} ${d.description}`.toLowerCase()}));return a}const electroGuideSearchIndex=buildSearchIndex();
 function renderSearchResults(q){const box=document.getElementById("search-results");if(!box)return;q=q.trim().toLowerCase();if(!q){box.innerHTML="";box.classList.remove("visible");return}const m=electroGuideSearchIndex.filter(x=>x.keywords.includes(q)).slice(0,10);box.innerHTML=m.length?m.map(x=>`<button class="search-result" type="button" onclick="openComponent('${x.id}')"><strong>${x.name}</strong><small>${x.category}</small><span>${x.description}</span></button>`).join(""):"<div class=\"search-empty\">No component found. Try resistor, Arduino, ESP32, sensor, motor, diode or IC.</div>";box.classList.add("visible")}
 document.querySelectorAll(".category[data-category]").forEach(b=>b.addEventListener("click",()=>showCategory(b.dataset.category)));const s=document.getElementById("global-search-input");if(s){s.addEventListener("input",()=>renderSearchResults(s.value));s.addEventListener("keydown",e=>{if(e.key==="Enter")document.querySelector(".search-result")?.click()})}document.addEventListener("click",e=>{if(!e.target.closest(".global-search"))document.getElementById("search-results")?.classList.remove("visible")});
