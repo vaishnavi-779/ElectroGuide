@@ -1,5 +1,5 @@
 // ElectroGuide component knowledge base.
-// Every library item gets a complete learning record through the category-aware generator.
+// Component-specific reference images are added for commonly viewed parts.
 
 const electroGuideDetails = {
   "arduino-uno": {
@@ -23,6 +23,13 @@ const electroGuideDetails = {
       {id:"passive-components",name:"Resistors & Capacitors",description:"Support filtering, biasing, timing and supply decoupling around the active devices."},
       {id:"headers",name:"Pin Headers",description:"Expose power, analog, digital and communication signals for external circuits."}
     ]
+  },
+  "ldr": {
+    name:"LDR", category:"Passive Components",
+    description:"A light-dependent resistor whose resistance changes with incident light.",
+    image:"https://commons.wikimedia.org/wiki/Special:FilePath/Photoresistor%203.jpg?width=900",
+    facts:[["Type","Photoresistor"],["Also called","Light-dependent resistor"],["Property","Resistance changes with light"],["Dark resistance","Typically high"],["Light response","Resistance decreases"]],
+    sections:{"What is an LDR?":"An LDR or photoresistor is a light-sensitive resistor. Its resistance decreases as the amount of light falling on its surface increases.","How it Works":"Light changes the conductivity of the photosensitive material. More light produces more charge carriers and therefore lower resistance.","Why is it Used?":"It provides a simple way for an electronic circuit to detect changes in ambient light.","Where is it Used?":"Automatic night lamps, street-light controllers, light meters, alarms, robotics and light-sensitive switching circuits.","Applications":"Automatic lighting, brightness detection, security systems, camera circuits and solar-light controllers.","Advantages":"Simple, inexpensive, passive and easy to interface with a voltage divider.","Disadvantages":"Response is relatively slow and characteristics vary with temperature and device type.","Precautions":"Use an appropriate divider resistor and do not treat an LDR as a precision light sensor without calibration."}
   }
 };
 
@@ -57,13 +64,28 @@ const electroGuideCategoryKnowledge={
 
 function titleFromSlugForData(slug){const special={"hc-sr04":"HC-SR04","hc-05-bluetooth":"HC-05 Bluetooth","hc-06-bluetooth":"HC-06 Bluetooth","mpu6050":"MPU6050","bmp280":"BMP280","mq-2":"MQ-2 Gas Sensor","lm35":"LM35","dht11":"DHT11","dht22":"DHT22","nrf24l01":"NRF24L01","esp32-cam":"ESP32-CAM","stm32-blue-pill":"STM32 Blue Pill","pic16f877a":"PIC16F877A","rp2040":"RP2040","8051":"8051"};return special[slug]||slug.split("-").map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(" ");}
 
+/* Specific Wikimedia Commons images for high-use components. More can be added without changing the page renderer. */
+const electroGuideImageMap={
+  "ldr":"https://commons.wikimedia.org/wiki/Special:FilePath/Photoresistor%203.jpg?width=900",
+  "resistor":"https://commons.wikimedia.org/wiki/Special:FilePath/Resistor.jpg?width=900",
+  "capacitor":"https://commons.wikimedia.org/wiki/Special:FilePath/Capacitors.jpg?width=900",
+  "inductor":"https://commons.wikimedia.org/wiki/Special:FilePath/Inductor.jpg?width=900",
+  "diode":"https://commons.wikimedia.org/wiki/Special:FilePath/Diode.jpg?width=900",
+  "led":"https://commons.wikimedia.org/wiki/Special:FilePath/LED%20display.jpg?width=900",
+  "zener-diode":"https://commons.wikimedia.org/wiki/Special:FilePath/Zener%20diode.jpg?width=900",
+  "potentiometer":"https://commons.wikimedia.org/wiki/Special:FilePath/Potentiometer.jpg?width=900",
+  "thermistor":"https://commons.wikimedia.org/wiki/Special:FilePath/Thermistor.jpg?width=900",
+  "crystal":"https://commons.wikimedia.org/wiki/Special:FilePath/Quartz%20crystal.jpg?width=900"
+};
+
 function hydrateElectroGuideDetails(categories){
   Object.entries(categories).forEach(([key,cat])=>{
     const k=electroGuideCategoryKnowledge[cat.name];
     cat.items.forEach(id=>{
       if(electroGuideDetails[id]||electroGuideInternalDetails[id])return;
       const name=titleFromSlugForData(id);
-      electroGuideDetails[id]={name,category:cat.name,description:`${name} is ${k.desc.toLowerCase()}`,image:`https://placehold.co/900x600/0d1b2a/36e0c5?text=${encodeURIComponent(name)}`,facts:[["Type",k.type],["Category",cat.name],["Main Use",k.apps.split(",")[0].trim().replace(/^./,c=>c.toUpperCase())],["Key Specification",k.spec]],sections:{"What is it?":`${name} is ${k.desc}`,"How it Works":k.work,"Why is it Used?":`It is commonly used for ${k.apps}.`,"Where is it Used?":`Typical uses include ${k.apps}.`,"Applications":`Practical applications include ${k.apps}.`,"Advantages":"Compact, practical and widely useful when selected for the correct circuit and operating conditions.","Disadvantages":`Performance depends on correct ratings and operating conditions. ${k.caution}`,"Important Specifications":`Important selection points include ${k.spec}.`,"Precautions":k.caution}};
+      electroGuideDetails[id]={name,category:cat.name,description:`${name} is ${k.desc.toLowerCase()}`,image:electroGuideImageMap[id]||`https://placehold.co/900x600/0d1b2a/36e0c5?text=${encodeURIComponent(name)}`,facts:[["Type",k.type],["Category",cat.name],["Main Use",k.apps.split(",")[0].trim().replace(/^./,c=>c.toUpperCase())],["Key Specification",k.spec]],sections:{"What is it?":`${name} is ${k.desc}`,"How it Works":k.work,"Why is it Used?":`It is commonly used for ${k.apps}.`,"Where is it Used?":`Typical uses include ${k.apps}.`,"Applications":`Practical applications include ${k.apps}.`,"Advantages":"Compact, practical and widely useful when selected for the correct circuit and operating conditions.","Disadvantages":`Performance depends on correct ratings and operating conditions. ${k.caution}`,"Important Specifications":`Important selection points include ${k.spec}.`,"Precautions":k.caution}};
+      if(electroGuideImageMap[id])electroGuideDetails[id].image=electroGuideImageMap[id];
     });
   });
 }
