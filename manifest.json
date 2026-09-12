@@ -1,0 +1,15 @@
+{
+  "name": "ElectroGuide — Interactive Electronics Encyclopedia",
+  "short_name": "ElectroGuide",
+  "description": "Learn electronics, explore components, build circuits, simulate and practice ECE skills.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#07111c",
+  "theme_color": "#07111c",
+  "categories": ["education", "utilities"],
+  "icons": [
+    {"src":"app-icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
