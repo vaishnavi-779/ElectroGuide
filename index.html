@@ -1,77 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>ElectroGuide | Electronics Encyclopedia</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="features.css">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="features.css">
+<style>
+.chatbot-launch{margin:0 0 24px;padding:28px;border:1px solid rgba(54,224,197,.35);border-radius:18px;background:linear-gradient(120deg,rgba(54,224,197,.08),rgba(77,163,255,.06));display:flex;align-items:center;justify-content:space-between;gap:20px}.chatbot-launch h2{margin:7px 0}.chatbot-launch p{color:var(--muted);line-height:1.6}.chatbot-panel{display:none;margin:0 0 48px;border:1px solid rgba(54,224,197,.3);border-radius:18px;background:#07121d;overflow:hidden}.chatbot-panel.open{display:block}.chatbot-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}.chatbot-head small{display:block;color:var(--muted);margin-top:4px}.chatbot-head button{border:1px solid var(--line);background:#132a3d;color:var(--text);border-radius:8px;padding:7px 11px;cursor:pointer}.chatbot-messages{height:360px;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:10px}.chat-msg{max-width:82%;padding:11px 14px;border-radius:13px;white-space:pre-wrap;line-height:1.55}.chat-msg.user{align-self:flex-end;background:var(--accent);color:#06121b}.chat-msg.bot{align-self:flex-start;background:#102438;color:#dceaf3;border:1px solid var(--line)}.chatbot-input-row{display:flex;gap:10px;padding:12px;border-top:1px solid var(--line)}.chatbot-input-row input{flex:1;padding:13px;border:1px solid var(--line);border-radius:10px;background:#081522;color:var(--text);outline:none}.chatbot-input-row button{padding:0 20px;border:0;border-radius:10px;background:var(--accent);color:#06121b;font-weight:bold;cursor:pointer}.chatbot-input-row button:disabled{opacity:.5}@media(max-width:700px){.chatbot-launch{flex-direction:column;align-items:stretch}.chatbot-input-row{flex-direction:column}.chatbot-input-row button{padding:13px}.chat-msg{max-width:92%}}
+</style>
 </head>
 <body>
-<header class="site-header">
-<a href="index.html" class="logo">⚡ ElectroGuide</a>
-<div class="header-tools">
-<div class="global-search"><span>⌕</span><input id="global-search-input" type="search" placeholder="Search any component..." autocomplete="off"><div id="search-results" class="search-results" aria-live="polite"></div></div>
-<nav class="feature-nav"><a href="quiz.html">Quiz</a><a href="games.html">Games</a><a href="designer.html">Designer</a><a href="simulator.html">Simulator</a><a href="tools.html">Tools</a><a href="learn.html">Learn</a><a href="projects.html">Projects</a></nav>
-<span class="header-tag">ECE • LEARN • BUILD</span>
-</div>
-</header>
-
+<header class="site-header"><a href="index.html" class="logo">⚡ ElectroGuide</a><div class="header-tools"><div class="global-search"><span>⌕</span><input id="global-search-input" type="search" placeholder="Search any component..." autocomplete="off"><div id="search-results" class="search-results" aria-live="polite"></div></div><nav class="feature-nav"><a href="quiz.html">Quiz</a><a href="games.html">Games</a><a href="designer.html">Designer</a><a href="simulator.html">Simulator</a><a href="tools.html">Tools</a><a href="learn.html">Learn</a><a href="projects.html">Projects</a></nav><span class="header-tag">ECE • LEARN • BUILD</span></div></header>
 <main class="home-page">
-<section class="home-hero">
-<div class="circuit-decoration" aria-hidden="true">●─────●─────●</div>
-<p class="eyebrow">ELECTRONICS • COMPONENTS • PROJECTS</p>
-<h1>ElectroGuide</h1>
-<p>Your Interactive Electronics Encyclopedia</p>
-<span class="hero-subtitle">Explore electronics. Learn. Practice. Build.</span>
-</section>
-
-<section class="telegram-ask">
-<div>
-<span class="ai-label">TELEGRAM • ASK ANYTHING</span>
-<h2>💬 Ask Anything</h2>
-<p>Have an electronics question? Ask the ElectroGuide Telegram assistant for help with components, circuits, calculations, projects and ECE concepts.</p>
-<ul>
-<li>🔧 Component and circuit questions</li>
-<li>📐 Calculations and formulas</li>
-<li>💡 Project guidance</li>
-<li>📚 Electronics and ECE explanations</li>
-</ul>
-</div>
-<a class="primary-btn telegram-btn" href="https://t.me/ElectroGuideBot" target="_blank" rel="noopener noreferrer">Open ElectroGuide on Telegram →</a>
-</section>
-
-<section class="feature-grid three">
-<a class="feature-link" href="quiz.html"><span class="feature-icon">🧠</span><h3>Electronics Quiz</h3><p>MCQs, explanations, XP and topic-based practice.</p><strong>Start Quiz →</strong></a>
-<a class="feature-link" href="games.html"><span class="feature-icon">🎮</span><h3>Electronics Games</h3><p>Fix circuits and sharpen practical troubleshooting skills.</p><strong>Play Games →</strong></a>
-<a class="feature-link" href="designer.html"><span class="feature-icon">🔧</span><h3>Circuit Designer</h3><p>Place components, wire a schematic and inspect a 3D-style PCB.</p><strong>Open Designer →</strong></a>
-<a class="feature-link" href="simulator.html"><span class="feature-icon">⚡</span><h3>Circuit Simulator</h3><p>Run virtual circuits and see voltage, current and oscilloscope behavior.</p><strong>Run Simulation →</strong></a>
-<a class="feature-link" href="tools.html"><span class="feature-icon">🧮</span><h3>Lab Tools</h3><p>Ohm's law, LED resistor, voltage divider and converters.</p><strong>Open Tools →</strong></a>
-<a class="feature-link" href="learn.html"><span class="feature-icon">📚</span><h3>Learning Path</h3><p>Follow a structured ECE path from fundamentals to communication.</p><strong>Start Learning →</strong></a>
-<a class="feature-link" href="projects.html"><span class="feature-icon">🛠️</span><h3>ECE Projects</h3><p>Project ideas with components, concepts and safety guidance.</p><strong>Explore Projects →</strong></a>
-<a class="feature-link" href="quiz.html"><span class="feature-icon">🏆</span><h3>Your Progress</h3><p><b data-xp>0</b> XP • Level <b data-level>1</b> • Build your electronics skills.</p><strong>View Quiz Progress →</strong></a>
-</section>
-
-<section class="category-section">
-<div class="section-heading"><span>01</span><h2>Explore Electronics</h2></div>
-<div class="category-grid" id="category-grid">
-<button class="category" data-category="passive"><span class="category-icon">🔋</span><span>Passive Components</span><small>Resistors, capacitors & more</small></button>
-<button class="category" data-category="diodes"><span class="category-icon">💡</span><span>Diodes</span><small>Rectification, LEDs & protection</small></button>
-<button class="category" data-category="transistors"><span class="category-icon">🔌</span><span>Transistors</span><small>Switching & amplification</small></button>
-<button class="category" data-category="ics"><span class="category-icon">🧠</span><span>ICs</span><small>Timers, amplifiers & logic</small></button>
-<button class="category" data-category="sensors"><span class="category-icon">🌡️</span><span>Sensors</span><small>Measure the physical world</small></button>
-<button class="category" data-category="motors"><span class="category-icon">⚙️</span><span>Motors</span><small>Motion & actuation</small></button>
-<button class="category" data-category="power"><span class="category-icon">🔋</span><span>Power Components</span><small>Supply, conversion & protection</small></button>
-<button class="category" data-category="displays"><span class="category-icon">📺</span><span>Displays</span><small>LED, LCD, OLED & more</small></button>
-<button class="category featured-category" data-category="microcontrollers"><span class="category-icon">🖥️</span><span>Microcontrollers</span><small>Arduino, ESP32, STM32 & more</small></button>
-<button class="category featured-category" data-category="project-components"><span class="category-icon">🛠️</span><span>ECE Project Components</span><small>Modules & parts for real projects</small></button>
-</div>
-</section>
-</main>
-<footer class="site-footer">⚡ ElectroGuide — Learn it. Build it. Understand it.</footer>
-<script src="data.js"></script>
-<script src="board-details.js"></script>
-<script src="script,js"></script>
-<script src="features.js"></script>
-</body>
-</html>
+<section class="home-hero"><div class="circuit-decoration" aria-hidden="true">●─────●─────●</div><p class="eyebrow">ELECTRONICS • COMPONENTS • PROJECTS</p><h1>ElectroGuide</h1><p>Your Interactive Electronics Encyclopedia</p><span class="hero-subtitle">Explore electronics. Learn. Practice. Build.</span></section>
+<section class="chatbot-launch"><div><span class="ai-label">ELECTROGUIDE ASSISTANT</span><h2>🤖 Ask the Electronics Chatbot</h2><p>Search components, circuits, formulas, sensors, microcontrollers and ECE concepts. Ask in normal language.</p></div><button id="start-chatbot" class="primary-btn">Start Chatbot →</button></section>
+<section id="chatbot-panel" class="chatbot-panel"><div class="chatbot-head"><div><strong>⚡ ElectroGuide Assistant</strong><small>Ask an electronics question</small></div><button id="chatbot-close" aria-label="Close chatbot">✕</button></div><div id="chatbot-messages" class="chatbot-messages"><div class="chat-msg bot">Hi! 👋 I’m your ElectroGuide Assistant. Ask me something like “What is a MOSFET?”, “Explain PWM”, “What is Ohm’s law?” or “What is an LDR?”</div></div><div class="chatbot-input-row"><input id="chatbot-input" type="text" placeholder="Type your electronics question..." autocomplete="off"><button id="chatbot-send">Send</button></div></section>
+<section class="telegram-ask"><div><span class="ai-label">TELEGRAM • ASK ANYTHING</span><h2>💬 Telegram Assistant</h2><p>Use the Telegram assistant for another way to ask electronics questions.</p></div><a class="primary-btn telegram-btn" href="https://t.me/ElectroGuideBot" target="_blank" rel="noopener noreferrer">Open Telegram →</a></section>
+<section class="feature-grid three"><a class="feature-link" href="quiz.html"><span class="feature-icon">🧠</span><h3>Electronics Quiz</h3><p>MCQs, explanations, XP and topic-based practice.</p><strong>Start Quiz →</strong></a><a class="feature-link" href="games.html"><span class="feature-icon">🎮</span><h3>Electronics Games</h3><p>Fix circuits and sharpen practical troubleshooting skills.</p><strong>Play Games →</strong></a><a class="feature-link" href="designer.html"><span class="feature-icon">🔧</span><h3>Circuit Designer</h3><p>Place components, wire a schematic and inspect a 3D-style PCB.</p><strong>Open Designer →</strong></a><a class="feature-link" href="simulator.html"><span class="feature-icon">⚡</span><h3>Circuit Simulator</h3><p>Run virtual circuits and see voltage, current and oscilloscope behavior.</p><strong>Run Simulation →</strong></a><a class="feature-link" href="tools.html"><span class="feature-icon">🧮</span><h3>Lab Tools</h3><p>Ohm's law, LED resistor, voltage divider and converters.</p><strong>Open Tools →</strong></a><a class="feature-link" href="learn.html"><span class="feature-icon">📚</span><h3>Learning Path</h3><p>Follow a structured ECE path from fundamentals to communication.</p><strong>Start Learning →</strong></a><a class="feature-link" href="projects.html"><span class="feature-icon">🛠️</span><h3>ECE Projects</h3><p>Project ideas with components, concepts and safety guidance.</p><strong>Explore Projects →</strong></a><a class="feature-link" href="quiz.html"><span class="feature-icon">🏆</span><h3>Your Progress</h3><p><b data-xp>0</b> XP • Level <b data-level>1</b> • Build your electronics skills.</p><strong>View Quiz Progress →</strong></a></section>
+<section class="category-section"><div class="section-heading"><span>01</span><h2>Explore Electronics</h2></div><div class="category-grid" id="category-grid"><button class="category" data-category="passive"><span class="category-icon">🔋</span><span>Passive Components</span><small>Resistors, capacitors & more</small></button><button class="category" data-category="diodes"><span class="category-icon">💡</span><span>Diodes</span><small>Rectification, LEDs & protection</small></button><button class="category" data-category="transistors"><span class="category-icon">🔌</span><span>Transistors</span><small>Switching & amplification</small></button><button class="category" data-category="ics"><span class="category-icon">🧠</span><span>ICs</span><small>Timers, amplifiers & logic</small></button><button class="category" data-category="sensors"><span class="category-icon">🌡️</span><span>Sensors</span><small>Measure the physical world</small></button><button class="category" data-category="motors"><span class="category-icon">⚙️</span><span>Motors</span><small>Motion & actuation</small></button><button class="category" data-category="power"><span class="category-icon">🔋</span><span>Power Components</span><small>Supply, conversion & protection</small></button><button class="category" data-category="displays"><span class="category-icon">📺</span><span>Displays</span><small>LED, LCD, OLED & more</small></button><button class="category featured-category" data-category="microcontrollers"><span class="category-icon">🖥️</span><span>Microcontrollers</span><small>Arduino, ESP32, STM32 & more</small></button><button class="category featured-category" data-category="project-components"><span class="category-icon">🛠️</span><span>ECE Project Components</span><small>Modules & parts for real projects</small></button></div></section>
+</main><footer class="site-footer">⚡ ElectroGuide — Learn it. Build it. Understand it.</footer>
+<script src="data.js"></script><script src="board-details.js"></script><script src="script,js"></script><script src="features.js"></script><script src="chatbot.js"></script>
+</body></html>
