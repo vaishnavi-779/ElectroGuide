@@ -8,6 +8,7 @@ const electroGuideVerifiedImages={
 "ceramic-capacitor":"https://commons.wikimedia.org/wiki/Special:FilePath/Electronic-Component-Ceramic-Capacitor.jpg?width=900",
 "electrolytic-capacitor":"https://commons.wikimedia.org/wiki/Special:FilePath/Electrolytic_capacitor.jpg?width=900",
 "film-capacitor":"https://commons.wikimedia.org/wiki/Special:FilePath/Emerson_Network_Power_7001232-J200_-_Film_capacitor_KNB1560_MKP-92806.jpg?width=900",
+"tantalum-capacitor":"https://commons.wikimedia.org/wiki/Special:FilePath/CMS_tantalum_capacitor.JPG?width=900",
 "avalanche-diode":"https://commons.wikimedia.org/wiki/Special:FilePath/D25A10.jpg?width=900",
 "tv-s-diode":"https://commons.wikimedia.org/wiki/Special:FilePath/Orckit_ORfast-R2-A-SA-U-W_-_board_2_-_Semtech_LCDA05-2673.jpg?width=900",
 "ir-sensor":"https://commons.wikimedia.org/wiki/Special:FilePath/IR_Sensor.jpg?width=900",
