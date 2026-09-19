@@ -509,3 +509,21 @@ body:after{opacity:.08!important}body:before{opacity:.16!important}
 }
 .feature-page,.home-page,.component-page{color:#202a33!important}
 .feature-hero p,.feature-grid p,.callout p,.project-card p,.road-step p{color:#66727c!important}
+
+/* Homepage feature cards — clean white */
+.feature-grid .feature-link{
+  background:#ffffff!important;
+  color:#202a33!important;
+  border:1px solid #d4dbe1!important;
+  border-radius:8px!important;
+  box-shadow:0 2px 8px rgba(32,42,51,.05)!important;
+}
+.feature-grid .feature-link h3{color:#26333d!important}
+.feature-grid .feature-link p{color:#66727c!important}
+.feature-grid .feature-link strong{color:#2d628d!important}
+.feature-grid .feature-link:hover{
+  background:#ffffff!important;
+  border-color:#9eb5c5!important;
+  box-shadow:0 4px 14px rgba(32,42,51,.08)!important;
+  transform:translateY(-2px)!important;
+}
