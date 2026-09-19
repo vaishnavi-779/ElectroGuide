@@ -962,3 +962,75 @@ body:after{opacity:.035!important}
   }
   .header-tag{display:none!important}
 }
+
+/* Header layout correction — keep navigation in one horizontal row */
+.site-header{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:18px!important;
+}
+.site-header .header-tools{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:14px!important;
+  min-width:0!important;
+  flex:1!important;
+}
+.site-header .feature-nav{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  flex-wrap:nowrap!important;
+  gap:2px!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  white-space:nowrap!important;
+  min-width:0!important;
+  scrollbar-width:none!important;
+}
+.site-header .feature-nav::-webkit-scrollbar{display:none!important}
+.site-header .feature-nav a{
+  display:inline-flex!important;
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+}
+.site-header .global-search{flex:0 1 280px!important;min-width:150px!important}
+@media(max-width:900px){
+  .site-header .header-tag{display:none!important}
+  .site-header .global-search{display:none!important}
+  .site-header .header-tools{
+    flex:1!important;
+    justify-content:flex-end!important;
+  }
+}
+@media(max-width:700px){
+  .site-header{
+    min-height:58px!important;
+    padding:9px 4%!important;
+    gap:8px!important;
+  }
+  .site-header .logo{
+    flex:0 0 auto!important;
+    font-size:18px!important;
+  }
+  .site-header .header-tools{
+    display:flex!important;
+    width:auto!important;
+    flex:1!important;
+    justify-content:flex-end!important;
+    overflow:hidden!important;
+  }
+  .site-header .feature-nav{
+    width:100%!important;
+    justify-content:flex-start!important;
+    gap:1px!important;
+  }
+  .site-header .feature-nav a{
+    font-size:11px!important;
+    padding:6px 7px!important;
+  }
+}
