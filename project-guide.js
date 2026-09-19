@@ -168,6 +168,55 @@ function makeDetailedSteps(project){
   return steps;
 }
 
+function projectMeta(project){
+  const level=project[1], text=(project[4]+' '+project[5]).toLowerCase();
+  let difficulty=level==='BEGINNER'?'Easy':level==='ANALOG & SENSORS'?'Easy–Moderate':level==='ARDUINO & EMBEDDED'?'Moderate':level==='ROBOTICS'?'Moderate':'Advanced';
+  let time=level==='BEGINNER'?'2–4 hours':level==='ANALOG & SENSORS'?'3–5 hours':level==='ARDUINO & EMBEDDED'?'4–8 hours':level==='ROBOTICS'?'6–12 hours':'8–20 hours';
+  let cost=level==='BEGINNER'?'₹300–₹800':level==='ANALOG & SENSORS'?'₹500–₹1,500':level==='ARDUINO & EMBEDDED'?'₹800–₹2,500':level==='ROBOTICS'?'₹1,500–₹4,000':'₹1,500–₹5,000';
+  if(/esp32|wifi|bluetooth|lora|rf|mqtt/.test(text)) cost=level==='ADVANCED'?'₹2,000–₹6,000':'₹1,000–₹3,000';
+  if(/servo|motor|pump|fan/.test(text)) time='4–10 hours';
+  return {difficulty,time,cost};
+}
+
+function wiringGuide(project){
+  const t=(project[4]+' '+project[5]).toLowerCase(), lines=[];
+  if(/arduino/.test(t)) lines.push('Controller: use the Arduino as the main controller and connect every module GND to Arduino GND.');
+  if(/esp32/.test(t)) lines.push('Controller: use the ESP32 as the main controller. Check module logic voltage before connecting signals.');
+  if(/ldr/.test(t)) lines.push('Sensor: make the LDR part of a voltage divider and connect the divider output to an analog input.');
+  if(/lm35|ds18b20|bme280|temperature/.test(t)) lines.push('Temperature sensor: connect power and ground first, then connect its signal/data pin to the required controller input.');
+  if(/hc-sr04|ultrasonic/.test(t)) lines.push('Distance sensor: connect VCC/GND, TRIG to a digital output and ECHO to an input. With a 3.3 V controller, use level shifting where required.');
+  if(/led/.test(t)) lines.push('LED: connect it through a current-limiting resistor. Verify polarity before powering.');
+  if(/buzzer/.test(t)) lines.push('Buzzer: use a transistor/driver if it needs more current than a GPIO can safely provide.');
+  if(/motor|pump|fan|led strip/.test(t)) lines.push('Load: never power a motor, pump, fan or LED strip directly from an MCU GPIO. Use a suitable MOSFET or motor driver and appropriate supply.');
+  if(/servo/.test(t)) lines.push('Servo: use a suitable supply, connect signal to the controller and share ground. Avoid drawing high servo current through the MCU regulator.');
+  if(/rc522|rfid/.test(t)) lines.push('RFID: follow the reader SPI pin labels and verify its voltage before wiring.');
+  if(/hc-05|bluetooth|ble/.test(t)) lines.push('Wireless module: connect the correct power and serial/BLE interface and verify logic-level compatibility.');
+  if(/bme280/.test(t)) lines.push('BME280: normally use I²C with SDA and SCL connected to the controller I²C pins.');
+  if(/mosfet|relay/.test(t)) lines.push('Driver stage: the controller drives the control input; load current must flow through the driver, not through the GPIO.');
+  if(!lines.length) lines.push('Connect power and ground first, then inputs, then outputs. Verify every connection before switching on.');
+  return lines;
+}
+
+function starterCode(project){
+  const title=project[2], t=(project[4]+' '+project[5]).toLowerCase();
+  let code='// ElectroGuide starter program for: '+title+'\nvoid setup() {\n  Serial.begin(115200);\n  // Set input pins as INPUT and output pins as OUTPUT.\n}\n\nvoid loop() {\n  // 1. Read the sensor/button/communication input.\n  // 2. Apply the decision described in the project guide.\n  // 3. Control the output.\n  // 4. Print useful readings while testing.\n  delay(100);\n}';
+  if(/arduino|esp32/.test(t) && /led/.test(t)) code='// Simple starting point for '+title+'\nconst int LED_PIN = 2;       // Change to your actual LED pin\nconst int INPUT_PIN = 4;     // Change to your actual input pin\n\nvoid setup() {\n  Serial.begin(115200);\n  pinMode(LED_PIN, OUTPUT);\n  pinMode(INPUT_PIN, INPUT);\n}\n\nvoid loop() {\n  int value = digitalRead(INPUT_PIN);\n  Serial.println(value);\n  digitalWrite(LED_PIN, value ? HIGH : LOW);\n  delay(100);\n}';
+  if(/ldr|lm35|soil|rain|gas|sensor/.test(t)) code='// Sensor-reading starter for '+title+'\nconst int SENSOR_PIN = 34;   // Example ADC pin; change for your board\n\nvoid setup() {\n  Serial.begin(115200);\n}\n\nvoid loop() {\n  int raw = analogRead(SENSOR_PIN);\n  Serial.println(raw);\n  delay(500);\n}\n// Record normal minimum/maximum values first.\n// Then choose a threshold from your measurements.';
+  return code;
+}
+
+function projectScience(project){
+  const t=(project[4]+' '+project[5]).toLowerCase();
+  if(/ldr|light|street light/.test(t)) return 'Light changes the sensor electrical value. The controller measures that change and decides when the output should turn on.';
+  if(/temperature|lm35|ds18b20|bme280|therm/.test(t)) return 'Temperature is converted into an electrical or digital measurement. The controller compares that measurement with a limit or displays it.';
+  if(/motor|robot|servo/.test(t)) return 'The controller normally cannot supply motor power directly. It sends control signals to a driver, which supplies the current needed by the motor.';
+  if(/wifi|bluetooth|ble|lora|rf|mqtt/.test(t)) return 'Sensor data is converted into digital information, packaged as messages and transmitted through the selected wireless technology.';
+  if(/ultrasonic/.test(t)) return 'The sensor measures the time taken for sound to travel to an object and return. Distance is estimated from that travel time.';
+  if(/rfid/.test(t)) return 'The reader creates a radio-frequency field and exchanges data with a nearby tag. The controller then decides whether the tag is accepted.';
+  if(/solar|mppt/.test(t)) return 'Solar power depends on voltage and current. MPPT searches for an operating point that produces more electrical power.';
+  return 'This project demonstrates the engineering loop: sense or receive information, process it using a circuit or controller, and produce a useful output.';
+}
+
 function renderProjectDetail(project){
   const [num,level,title,description,components,build,test]=project;
   const list=splitComponents(components);
@@ -194,7 +243,13 @@ function renderProjectDetail(project){
       </section>
 
       <section class="detail-section">
-        <div class="detail-section-title"><span>02</span><h3>Components used & what each one does</h3></div>
+        <div class="detail-section-title"><span>02</span><h3>Project at a glance</h3></div>
+        <div class="project-meta-grid"><div><small>Difficulty</small><strong>${projectMeta(project).difficulty}</strong></div><div><small>Typical build time</small><strong>${projectMeta(project).time}</strong></div><div><small>Approx. student budget</small><strong>${projectMeta(project).cost}</strong></div></div>
+        <div class="science-box"><strong>What you learn</strong><p>${projectScience(project)}</p></div>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-section-title"><span>03</span><h3>Components used & what each one does</h3></div>
         <div class="component-table">
           <div class="component-row component-head"><strong>Component</strong><strong>What it is used for</strong></div>
           ${list.map(c=>`<div class="component-row"><strong>${c}</strong><span>${componentUse(c)}</span></div>`).join("")}
@@ -202,7 +257,14 @@ function renderProjectDetail(project){
       </section>
 
       <section class="detail-section">
-        <div class="detail-section-title"><span>03</span><h3>How to build it — step by step</h3></div>
+        <div class="detail-section-title"><span>04</span><h3>Wiring guide</h3></div>
+        <p>Follow this order instead of connecting everything at once:</p>
+        <ol class="wiring-list">${wiringGuide(project).map((x,i)=>`<li><span>${i+1}</span>${x}</li>`).join("")}</ol>
+        <div class="science-box"><strong>Before powering on</strong><p>Check VCC, GND, polarity and signal pins twice. High-current loads need a proper driver and suitable supply.</p></div>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-section-title"><span>05</span><h3>How to build it — step by step</h3></div>
         <ol class="build-steps">
           ${steps.map((s,i)=>`<li><span>${i+1}</span><div>${s}</div></li>`).join("")}
         </ol>
@@ -212,9 +274,16 @@ function renderProjectDetail(project){
         </div>
       </section>
 
+      <section class="detail-section">
+        <div class="detail-section-title"><span>06</span><h3>Starter code</h3></div>
+        <p>This is a starting template. Change the pin numbers to match your actual board and module, then add the project logic step by step.</p>
+        <pre class="project-code"><code>${starterCode(project)}</code></pre>
+        <p><strong>Upload:</strong> Arduino IDE → select board → select COM port → paste code → compile → upload → open Serial Monitor at 115200 baud.</p>
+      </section>
+
       <section class="detail-section two-col-detail">
         <div>
-          <div class="detail-section-title"><span>04</span><h3>Test & troubleshoot</h3></div>
+          <div class="detail-section-title"><span>07</span><h3>Test & troubleshoot</h3></div>
           <p>${test}</p>
           <ul class="check-list">
             <li>Check power and ground first.</li>
@@ -224,14 +293,14 @@ function renderProjectDetail(project){
           </ul>
         </div>
         <div>
-          <div class="detail-section-title"><span>05</span><h3>What you should see</h3></div>
+          <div class="detail-section-title"><span>08</span><h3>What you should see</h3></div>
           <p>When the project is working, changing the input condition should produce the expected output described in the project objective. Repeat the test several times so you know the result is reliable, not accidental.</p>
           <div class="result-note"><strong>Student tip:</strong> Take a photo of your circuit, record the sensor value and write down what happened. This makes debugging much easier.</div>
         </div>
       </section>
 
       <section class="detail-section safety-section">
-        <div class="detail-section-title"><span>06</span><h3>Safety before you switch it on</h3></div>
+        <div class="detail-section-title"><span>09</span><h3>Safety before you switch it on</h3></div>
         <p>Start with low-voltage battery or USB power whenever possible. Never connect a school prototype directly to mains electricity. Check polarity before powering the circuit, keep water away from electronics, and use a proper driver for motors, pumps, strips and other high-current loads.</p>
       </section>
     </div>`;
