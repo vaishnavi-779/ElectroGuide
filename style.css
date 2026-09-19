@@ -236,3 +236,62 @@ body:before{
 /* Final neutral polish */
 .chatbot-launch h2,.chatbot-head strong{font-weight:650}
 .chatbot-launch{background:#111a23!important}
+
+
+/* Professional graphite + steel-blue palette */
+:root{
+ --bg:#111417;
+ --panel:#191e23;
+ --panel-2:#20262c;
+ --line:#343c44;
+ --line-strong:#4b5660;
+ --text:#edf0f2;
+ --muted:#a5adb4;
+ --accent:#7fa6c2;
+ --accent-2:#93a9ba;
+ --focus:rgba(127,166,194,.18);
+}
+body{background:#111417;color:var(--text)}
+body:before{display:none}
+.site-header,.component-header{background:#111417;border-bottom:1px solid #30373e}
+.logo{color:#edf0f2}
+.header-tag{color:#8f99a2}
+.feature-nav a:hover,.feature-nav a.active{color:#dce5eb;border-bottom-color:#7fa6c2}
+.global-search input{background:#191e23;border-color:#343c44}
+.global-search>span{color:#91a9ba}
+.global-search input:focus{border-color:#7fa6c2;box-shadow:0 0 0 3px rgba(127,166,194,.12)}
+.search-results{background:#191e23;border-color:#343c44;box-shadow:0 14px 30px rgba(0,0,0,.3)}
+.search-result:hover{background:#222930}
+.home-hero{border-bottom-color:#343c44}
+.eyebrow,.ai-label,.game-label,.section-heading span{color:#8eafc5}
+.home-hero p:not(.eyebrow){color:#c5cbd0}
+.hero-subtitle{color:#919aa2}
+.category,.feature-grid article,.callout,.tool-card,.project-card,
+.component-image,.quick-info,.learning-section,.internal-section,
+.stat-row>div,.road-step{background:#191e23;border-color:#343c44}
+.category:hover,.category:focus-visible,.feature-grid article:hover,.project-card:hover{
+ border-color:#526271;background:#20262c
+}
+.category-icon,.feature-icon{filter:grayscale(1);opacity:.78}
+.category small,.feature-grid p,.callout p,.hero-subtitle{color:#9ba4ab}
+.primary-btn{background:#7fa6c2;color:#101417}
+.secondary-btn{background:#20262c;color:#e5eaed;border-color:#46515b}
+.primary-btn:hover{filter:brightness(1.06)}
+.component-badge{background:#191e23;border-color:#343c44;color:#9db6c9}
+.component-image img{border-radius:4px}
+.internal-card,.quiz-option,.game-option{background:#20262c;border-color:#3a444d}
+.internal-card:hover,.quiz-option:hover,.game-option:hover{border-color:#5b6c79}
+.quiz-panel,.game-panel,.ai-chat,.chatbot-panel{background:#171c21;border-color:#343c44}
+.quiz-controls select,.tool-card input,.tool-card select,.ai-input-row textarea,.chatbot-input-row input{
+ background:#111417;border-color:#343c44;color:#edf0f2
+}
+.quiz-option span{background:#2a3239;color:#a8bfd0}
+.quiz-option.correct{border-color:#789b8d;background:rgba(120,155,141,.08)}
+.quiz-option.wrong{border-color:#a16f6f;background:rgba(161,111,111,.08)}
+.result-card{background:#1c2725;border-color:#40514b}
+.stat-row strong{color:#9ab7cb}
+.chat-msg.bot{background:#20262c!important;border-color:#3a444d!important}
+.chat-msg.user{background:#7fa6c2!important;color:#101417!important}
+.site-footer{background:#111417;border-top-color:#30373e}
+.road-step>span{background:#111417;border-color:#3c474f;color:#9db6c9}
+.component-illustration{color:#8eafc5}
