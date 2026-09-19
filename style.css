@@ -232,3 +232,7 @@ body:before{
   .feature-nav{display:flex;gap:15px}
   .feature-nav a{padding:7px 1px}
 }
+
+/* Final neutral polish */
+.chatbot-launch h2,.chatbot-head strong{font-weight:650}
+.chatbot-launch{background:#111a23!important}
