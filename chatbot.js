@@ -146,12 +146,32 @@ document.addEventListener('DOMContentLoaded',()=>{
     }catch(e){return null;}
   }
 
+  async function aiServerAnswer(question){
+    try{
+      const res=await fetch('/api/ask',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({question})
+      });
+      const data=await res.json().catch(()=>({}));
+      if(!res.ok) return null;
+      return data?.answer?.trim()||null;
+    }catch(e){return null;}
+  }
+
   async function answer(q){
+    // Use the real AI backend first. Local knowledge is only a fallback
+    // when the backend is unavailable.
+    const ai=await aiServerAnswer(q);
+    if(ai)return ai;
+
     const local=localAnswer(q);
     if(local)return local;
+
     const broad=await webElectronicsAnswer(q);
     if(broad)return `I found a related electronics reference:\n\n${broad}`;
-    return 'I could not find a reliable answer for that question right now. Try rephrasing it with the electronics topic, component, circuit, formula, or application you mean. For calculations, include the values and units.';
+
+    return 'The AI service is not connected. Run the ElectroGuide server with an OpenAI API key, or connect this site to its deployed backend.';
   }
 
   async function ask(){
