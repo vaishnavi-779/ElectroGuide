@@ -476,3 +476,36 @@ body:after{
 .ai-chat-head{padding:14px 18px!important;border-bottom:1px solid #e1e5e8!important}.ai-chat-head span{color:#2d628d!important}.ai-answer{min-height:85px!important;padding:18px!important;color:#394852!important}.ai-input-row{padding:12px!important;background:#f8fafb!important}.ai-input-row textarea{border-radius:6px!important}.ai-input-row button{border-radius:6px!important}
 .site-footer{background:#fff!important;border-top:1px solid #d4dbe1!important;color:#71808b!important}.ai-icon{display:none!important}
 body:after{opacity:.08!important}body:before{opacity:.16!important}
+
+/* Final surface cleanup: white cards throughout quiz, games and tools */
+.quiz-panel,.game-panel,.quiz-option,.game-option,.tool-card,.feature-grid article,
+.callout,.project-card,.stat-row>div,.road-step,.internal-card,
+.component-image,.quick-info,.learning-section,.internal-section,
+.ai-banner,.ai-chat,.chatbot-panel{
+  background:#ffffff!important;
+  color:#202a33!important;
+}
+.quiz-option,.game-option,.internal-card{
+  border-color:#d4dbe1!important;
+}
+.quiz-option:hover,.game-option:hover,.internal-card:hover{
+  background:#ffffff!important;
+  border-color:#9eb5c5!important;
+}
+.quiz-controls select,.tool-card input,.tool-card select{
+  background:#ffffff!important;
+  color:#202a33!important;
+}
+.quiz-option span{
+  background:#edf2f5!important;
+  color:#2d628d!important;
+}
+.quiz-feedback,.game-feedback{color:#66727c!important}
+.game-score{color:#66727c!important}
+.tool-card output{
+  background:#f7f9fa!important;
+  color:#2d628d!important;
+  border:1px solid #d4dbe1!important;
+}
+.feature-page,.home-page,.component-page{color:#202a33!important}
+.feature-hero p,.feature-grid p,.callout p,.project-card p,.road-step p{color:#66727c!important}
