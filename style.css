@@ -646,3 +646,278 @@ body:after{opacity:.08!important}body:before{opacity:.16!important}
     width:auto!important;
   }
 }
+
+/* =========================================================
+   ElectroGuide — Professional App UI
+   Clean engineering learning platform
+   ========================================================= */
+:root{
+  --bg:#f6f8fa;
+  --surface:#ffffff;
+  --surface-2:#f0f4f7;
+  --border:#dce3e9;
+  --border-strong:#c7d1da;
+  --text:#17232e;
+  --muted:#657482;
+  --primary:#245a82;
+  --primary-dark:#1b486a;
+  --primary-soft:#eaf2f7;
+  --shadow:0 4px 18px rgba(25,48,66,.07);
+  --shadow-hover:0 8px 24px rgba(25,48,66,.11);
+}
+html{background:var(--bg)!important}
+body{
+  background:var(--bg)!important;
+  color:var(--text)!important;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;
+}
+body:before{
+  opacity:.08!important;
+  background-image:
+    linear-gradient(90deg,rgba(36,90,130,.08) 1px,transparent 1px),
+    linear-gradient(rgba(36,90,130,.08) 1px,transparent 1px)!important;
+  background-size:56px 56px!important;
+}
+body:after{opacity:.035!important}
+
+/* Header */
+.site-header,.component-header{
+  min-height:64px!important;
+  padding:10px 5%!important;
+  background:rgba(255,255,255,.98)!important;
+  border-bottom:1px solid var(--border)!important;
+  box-shadow:0 1px 5px rgba(25,48,66,.04)!important;
+  backdrop-filter:none!important;
+}
+.logo{
+  color:var(--text)!important;
+  font-size:20px!important;
+  font-weight:750!important;
+  letter-spacing:-.3px!important;
+}
+.header-tag{
+  color:#71808c!important;
+  letter-spacing:1px!important;
+}
+.header-tools{gap:18px!important}
+.feature-nav{gap:4px!important}
+.feature-nav a{
+  color:#52616e!important;
+  padding:8px 10px!important;
+  border:0!important;
+  border-radius:6px!important;
+  font-weight:600!important;
+}
+.feature-nav a:hover,.feature-nav a.active{
+  color:var(--primary)!important;
+  background:var(--primary-soft)!important;
+  border:0!important;
+}
+.global-search{width:min(330px,35vw)!important}
+.global-search input{
+  height:38px!important;
+  background:#f7f9fb!important;
+  border:1px solid var(--border)!important;
+  border-radius:7px!important;
+}
+.global-search input:focus{
+  border-color:#91adc1!important;
+  box-shadow:0 0 0 3px rgba(36,90,130,.08)!important;
+}
+.global-search>span{color:#71899b!important}
+
+/* Main page */
+.home-page{
+  width:min(92%,1180px)!important;
+  padding:38px 0 60px!important;
+}
+.home-hero{
+  text-align:left!important;
+  padding:34px 0 32px!important;
+  border-bottom:0!important;
+}
+.circuit-decoration{
+  display:none!important;
+}
+.eyebrow{
+  margin:0 0 10px!important;
+  color:var(--primary)!important;
+  font-size:11px!important;
+  letter-spacing:1.7px!important;
+}
+.home-hero h1{
+  margin:0!important;
+  color:var(--text)!important;
+  font-size:clamp(44px,7vw,76px)!important;
+  line-height:1!important;
+  letter-spacing:-2.5px!important;
+}
+.home-hero p:not(.eyebrow){
+  margin:12px 0 5px!important;
+  color:#40505e!important;
+  font-size:clamp(18px,2.2vw,25px)!important;
+}
+.hero-subtitle{
+  color:#7a8791!important;
+  font-size:14px!important;
+}
+
+/* Assistant — app-style compact card */
+.chatbot-launch{
+  width:min(760px,100%)!important;
+  max-width:760px!important;
+  margin:0 0 34px!important;
+  padding:22px 24px!important;
+  display:block!important;
+  background:var(--surface)!important;
+  border:1px solid var(--border)!important;
+  border-radius:10px!important;
+  box-shadow:var(--shadow)!important;
+}
+.chatbot-launch>div{text-align:left!important}
+.chatbot-launch .ai-label{
+  color:var(--primary)!important;
+  font-size:10px!important;
+  letter-spacing:1.5px!important;
+}
+.chatbot-launch h2{
+  margin:6px 0 6px!important;
+  color:var(--text)!important;
+  font-size:19px!important;
+  letter-spacing:-.3px!important;
+}
+.chatbot-launch p{
+  max-width:650px!important;
+  margin:0!important;
+  color:var(--muted)!important;
+  font-size:13px!important;
+  line-height:1.55!important;
+}
+.chatbot-launch .primary-btn{
+  display:inline-block!important;
+  width:auto!important;
+  margin-top:15px!important;
+  padding:9px 15px!important;
+  background:var(--primary)!important;
+  color:#fff!important;
+  border-radius:6px!important;
+  font-size:12px!important;
+}
+.chatbot-launch .primary-btn:hover{background:var(--primary-dark)!important;filter:none!important}
+
+/* Feature navigation cards */
+.feature-grid.three{
+  grid-template-columns:repeat(4,1fr)!important;
+  gap:14px!important;
+  margin-top:0!important;
+}
+.feature-grid .feature-link{
+  min-height:150px!important;
+  padding:19px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+  background:var(--surface)!important;
+  color:var(--text)!important;
+  border:1px solid var(--border)!important;
+  border-radius:9px!important;
+  box-shadow:var(--shadow)!important;
+  transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease!important;
+}
+.feature-grid .feature-link:hover{
+  transform:translateY(-2px)!important;
+  background:#fff!important;
+  border-color:#b7c8d5!important;
+  box-shadow:var(--shadow-hover)!important;
+}
+.feature-grid .feature-icon{display:none!important}
+.feature-grid .feature-link h3{
+  margin:0 0 8px!important;
+  color:var(--text)!important;
+  font-size:16px!important;
+  letter-spacing:-.2px!important;
+}
+.feature-grid .feature-link p{
+  margin:0!important;
+  color:var(--muted)!important;
+  font-size:12px!important;
+  line-height:1.5!important;
+}
+.feature-grid .feature-link strong{
+  margin-top:auto!important;
+  padding-top:14px!important;
+  color:var(--primary)!important;
+  font-size:12px!important;
+  font-weight:700!important;
+}
+
+/* Explore section */
+.category-section{
+  margin-top:46px!important;
+  padding-top:28px!important;
+  border-top:1px solid var(--border)!important;
+}
+.section-heading{
+  margin-bottom:15px!important;
+}
+.section-heading span{
+  color:var(--primary)!important;
+  font-size:11px!important;
+}
+.section-heading h2{
+  color:var(--text)!important;
+  font-size:20px!important;
+}
+.category-grid{
+  gap:10px!important;
+}
+.category-grid .category{
+  min-height:92px!important;
+  padding:17px!important;
+  background:var(--surface)!important;
+  border:1px solid var(--border)!important;
+  border-radius:8px!important;
+  box-shadow:none!important;
+}
+.category-grid .category:hover{
+  background:#fff!important;
+  border-color:#b7c8d5!important;
+  transform:none!important;
+  box-shadow:var(--shadow)!important;
+}
+.category-icon{display:none!important}
+
+/* General cards across app */
+.feature-grid article,.callout,.tool-card,.project-card,
+.component-image,.quick-info,.learning-section,.internal-section,
+.stat-row>div,.road-step,.quiz-panel,.game-panel{
+  background:var(--surface)!important;
+  border-color:var(--border)!important;
+  border-radius:9px!important;
+  box-shadow:var(--shadow)!important;
+}
+
+/* Footer */
+.site-footer{
+  background:#fff!important;
+  border-top:1px solid var(--border)!important;
+  color:#7a8791!important;
+}
+
+/* Mobile */
+@media(max-width:1000px){
+  .feature-grid.three{grid-template-columns:repeat(2,1fr)!important}
+}
+@media(max-width:700px){
+  .home-page{width:92%!important;padding-top:24px!important}
+  .home-hero{padding:25px 0 24px!important}
+  .home-hero h1{font-size:48px!important}
+  .feature-grid.three{grid-template-columns:1fr!important;gap:10px!important}
+  .feature-grid .feature-link{min-height:125px!important}
+  .chatbot-launch{width:100%!important;margin-bottom:25px!important;padding:18px!important}
+  .category-grid{grid-template-columns:1fr!important}
+  .site-header,.component-header{padding:10px 4%!important}
+}
+
+/* Remove old decorative styling that makes the interface feel artificial */
+*{text-shadow:none!important}
