@@ -605,3 +605,44 @@ body:after{opacity:.08!important}body:before{opacity:.16!important}
     height:28px!important;
   }
 }
+
+/* Electronics Assistant — compact left-side block */
+.chatbot-launch{
+  width:min(760px,100%)!important;
+  max-width:760px!important;
+  margin:0 0 24px 0!important;
+  padding:20px 22px!important;
+  display:block!important;
+  text-align:left!important;
+}
+.chatbot-launch>div{
+  width:100%!important;
+  text-align:left!important;
+}
+.chatbot-launch h2{
+  margin:5px 0 7px!important;
+  text-align:left!important;
+}
+.chatbot-launch p{
+  max-width:680px!important;
+  margin:0!important;
+  text-align:left!important;
+}
+.chatbot-launch .primary-btn{
+  display:inline-block!important;
+  width:auto!important;
+  min-width:130px!important;
+  margin-top:16px!important;
+  padding:11px 18px!important;
+  text-align:center!important;
+}
+@media(max-width:700px){
+  .chatbot-launch{
+    width:100%!important;
+    max-width:none!important;
+    padding:18px!important;
+  }
+  .chatbot-launch .primary-btn{
+    width:auto!important;
+  }
+}
