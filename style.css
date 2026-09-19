@@ -527,3 +527,22 @@ body:after{opacity:.08!important}body:before{opacity:.16!important}
   box-shadow:0 4px 14px rgba(32,42,51,.08)!important;
   transform:translateY(-2px)!important;
 }
+
+/* Assistant section — left aligned with page content */
+.chatbot-launch,.ai-banner{
+  width:100%!important;
+  max-width:none!important;
+  margin:0 0 18px 0!important;
+  text-align:left!important;
+  justify-content:flex-start!important;
+}
+.chatbot-launch>div,.ai-banner>div{
+  text-align:left!important;
+}
+.chatbot-launch h2,.ai-banner h2{
+  text-align:left!important;
+}
+.chatbot-launch p,.ai-banner p{
+  text-align:left!important;
+  max-width:900px!important;
+}
