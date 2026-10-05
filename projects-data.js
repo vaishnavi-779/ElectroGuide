@@ -1,4 +1,4 @@
-const PROJECTS = [
+window.PROJECTS = [
 ['01','BEGINNER','Automatic Night Lamp','Turn an LED on automatically when ambient light falls.','LDR, 10kΩ resistor, BC547/NPN transistor, 330Ω resistor, LED, 5V supply.','Build an LDR voltage divider; feed its changing voltage to the transistor base and drive the LED through 330Ω. Adjust the threshold with the divider resistor.','Test bright/dark conditions, measure divider voltage and LED current. Use only low voltage; use an isolated driver for real lamps.'],
 ['02','BEGINNER','Water Level Indicator','Indicate low, medium and high water levels.','Arduino Nano, 3 level probes, 3×10kΩ resistors, LEDs, 220Ω resistors, buzzer.','Place insulated probes at three heights, read them as digital inputs and light the matching level indicators.','Calibrate thresholds and limit sensing current to reduce probe corrosion.'],
 ['03','BEGINNER','Clap Switch','Detect a clap and toggle an output.','Sound sensor, Arduino Nano, LED, 220Ω resistor.','Read the microphone module, detect a strong pulse, debounce it in software and toggle the LED.','Test in a quiet room and add a timing window to reject multiple triggers.'],
@@ -60,7 +60,3 @@ const PROJECTS = [
 ['59','ADVANCED','PCB Environmental Monitor','Design a compact environmental-monitoring PCB.','ESP32, BME280, light sensor, RGB LED, 5V regulator, decoupling capacitors.','Create schematic, place sensors away from heat, route power carefully, assemble and calibrate.','Practice grounding, decoupling, test points and connector polarity.'],
 ['60','ADVANCED','Mini Industrial Automation Controller','Create a PLC-style low-voltage controller.','ESP32/STM32, buttons, sensors, MOSFET/relay drivers, LEDs, OLED, isolated I/O modules.','Build an input-process-output state machine with timers, interlocks, manual/automatic modes and fault handling.','Use low-voltage isolated I/O for education; real machinery needs certified safety controls.']
 ];
-
-
-// Expose the project library to pages that load it dynamically.
-window.PROJECTS = PROJECTS;
