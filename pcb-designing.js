@@ -90,6 +90,21 @@ const projects=[
 ['J1','Battery connector','1','2-pin','Connector_Generic:Conn_01x02','Battery interface','BAT+ → J1.1; BAT− → J1.2']],notes:'Battery charging is safety-critical. Use a charger IC and protection architecture appropriate to the cell chemistry, charge current and battery pack. Do not rely on a generic schematic without checking the manufacturer datasheet.']}
 ];
 
+
+// Expand the PCB catalogue with the existing ElectroGuide project library.
+// These projects are preserved; they are added here rather than replacing the PCB-specific designs above.
+const existingNames=new Set(projects.map(p=>p.name.toLowerCase()));
+if(Array.isArray(window.PROJECTS)){
+ window.PROJECTS.forEach(x=>{
+   const name=x[2]; if(!name || existingNames.has(name.toLowerCase())) return;
+   const sourceLevel=x[1];
+   const level=sourceLevel==='BEGINNER'?'BEGINNER':sourceLevel==='ADVANCED'?'ADVANCED':'INTERMEDIATE';
+   const components=[['PROJECT BOM','Component set','—',x[4],'See component selection','Primary project components',x[5]]];
+   projects.push({id:'library-'+x[0],name,level,domain:sourceLevel,desc:x[3],components,notes:x[6]+' Detailed pin-by-pin mapping will be finalized against the selected parts before KiCad generation.'});
+   existingNames.add(name.toLowerCase());
+ });
+}
+
 let level='ALL';
 let selected=null;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
