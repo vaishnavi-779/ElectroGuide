@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ElectroGuide | PCB Designing</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile.css">
+<link rel="stylesheet" href="pcb-designing.css">
+</head>
+<body>
+<header class="site-header">
+  <a href="index.html" class="logo">ElectroGuide</a>
+  <div class="header-tools">
+    <nav class="feature-nav">
+      <a href="index.html">Home</a>
+      <a href="pcb-designing.html" class="active">PCB Designing</a>
+      <a href="tools.html">Tools</a>
+      <a href="learn.html">Learn</a>
+      <a href="projects.html">Project Library</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pcb-page">
+  <section class="pcb-hero">
+    <span class="eyebrow">PCB DESIGNING · IDEA → CIRCUIT → BOM → KICAD</span>
+    <h1>PCB Designing</h1>
+    <p>Choose a project to learn what the circuit needs before moving into professional schematic and PCB design.</p>
+    <div class="pcb-search">
+      <span aria-hidden="true">⌕</span>
+      <input id="pcb-search-input" type="search" placeholder="Search a project, e.g. 7-segment, ESP32 sensor, buck converter..." autocomplete="off">
+    </div>
+  </section>
+
+  <section class="pcb-intro">
+    <div><strong>START HERE</strong><h2>Basic PCB projects for beginners</h2></div>
+    <p>Start with simple circuits, then move toward embedded, analog, communication and power designs. Each project will later open into its complete component list, exact connections, calculations and KiCad handoff.</p>
+  </section>
+
+  <div class="pcb-layout">
+    <aside class="pcb-sidebar">
+      <h3>Design level</h3>
+      <button class="active" data-level="ALL">All projects</button>
+      <button data-level="BEGINNER">Beginner</button>
+      <button data-level="INTERMEDIATE">Intermediate</button>
+      <button data-level="ADVANCED">Advanced</button>
+      <div class="pcb-side-note">The catalogue includes the existing guided project library plus PCB-focused designs. Detailed component/pin mapping is being expanded project by project before native KiCad generation.</div>
+    </aside>
+    <section class="pcb-library">
+      <div class="pcb-library-head">
+        <span id="pcb-count">0 projects</span>
+        <span>PCB DESIGNING PATH</span>
+      </div>
+      <div id="pcb-project-grid" class="pcb-project-grid"></div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">ElectroGuide — Learn it. Design it. Build it.</footer>
+<script src="projects-data.js"></script><script src="pcb-designing.js"></script>
+</body>
+</html>
