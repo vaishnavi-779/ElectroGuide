@@ -60,3 +60,7 @@ const PROJECTS = [
 ['59','ADVANCED','PCB Environmental Monitor','Design a compact environmental-monitoring PCB.','ESP32, BME280, light sensor, RGB LED, 5V regulator, decoupling capacitors.','Create schematic, place sensors away from heat, route power carefully, assemble and calibrate.','Practice grounding, decoupling, test points and connector polarity.'],
 ['60','ADVANCED','Mini Industrial Automation Controller','Create a PLC-style low-voltage controller.','ESP32/STM32, buttons, sensors, MOSFET/relay drivers, LEDs, OLED, isolated I/O modules.','Build an input-process-output state machine with timers, interlocks, manual/automatic modes and fault handling.','Use low-voltage isolated I/O for education; real machinery needs certified safety controls.']
 ];
+
+
+// Expose the project library to pages that load it dynamically.
+window.PROJECTS = PROJECTS;
