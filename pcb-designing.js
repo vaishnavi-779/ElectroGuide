@@ -94,7 +94,7 @@ const projects=[
 // Expand the PCB catalogue with the existing ElectroGuide project library.
 // These projects are preserved; they are added here rather than replacing the PCB-specific designs above.
 const existingNames=new Set(projects.map(p=>p.name.toLowerCase()));
-if(Array.isArray(window.PROJECTS)){
+if(Array.isArray(PROJECTS)){
  window.PROJECTS.forEach(x=>{
    const name=x[2]; if(!name || existingNames.has(name.toLowerCase())) return;
    const sourceLevel=x[1];
