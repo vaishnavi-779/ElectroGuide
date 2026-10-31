@@ -1034,3 +1034,132 @@ body:after{opacity:.035!important}
     padding:6px 7px!important;
   }
 }
+
+
+/* =========================================================
+   ElectroGuide — Unified Professional Engineering Theme
+   Dark graphite / deep navy / restrained teal accent
+   ========================================================= */
+:root{
+  color-scheme:dark;
+  --bg:#08121b!important;
+  --surface:#101d28!important;
+  --surface-2:#142431!important;
+  --border:#263b4a!important;
+  --border-strong:#385365!important;
+  --text:#e8f0f5!important;
+  --muted:#9aabb7!important;
+  --primary:#63c9b7!important;
+  --primary-dark:#43ad9b!important;
+  --primary-soft:rgba(99,201,183,.10)!important;
+  --shadow:0 10px 28px rgba(0,0,0,.18)!important;
+  --shadow-hover:0 14px 34px rgba(0,0,0,.28)!important;
+}
+html,body{background:#08121b!important;color:#e8f0f5!important}
+body{
+  background:
+    radial-gradient(ellipse at 12% 0%,rgba(45,111,125,.15),transparent 34%),
+    radial-gradient(ellipse at 88% 24%,rgba(41,91,130,.12),transparent 32%),
+    #08121b!important;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+}
+body:before{
+  opacity:.10!important;
+  background-image:linear-gradient(rgba(116,171,185,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(116,171,185,.16) 1px,transparent 1px)!important;
+  background-size:52px 52px!important;
+}
+.site-header,.component-header{
+  background:rgba(8,18,27,.96)!important;
+  border-bottom:1px solid #263b4a!important;
+  box-shadow:0 8px 26px rgba(0,0,0,.16)!important;
+  backdrop-filter:blur(14px)!important;
+}
+.logo{color:#edf5f8!important;font-weight:760!important;letter-spacing:-.45px!important}
+.logo:before{content:"";display:inline-block;width:8px;height:8px;margin:0 9px 2px 0;border-radius:2px;background:#63c9b7;box-shadow:0 0 14px rgba(99,201,183,.45)}
+.feature-nav a{color:#a9bac5!important;border:1px solid transparent!important;border-radius:6px!important}
+.feature-nav a:hover,.feature-nav a.active{color:#78d8c7!important;background:rgba(99,201,183,.09)!important;border-color:rgba(99,201,183,.18)!important}
+.header-tag{color:#8297a5!important}
+.global-search input,.chatbot-input-row input,.quiz-controls select,.tool-card input,.tool-card select{
+  color:#e8f0f5!important;background:#0c1923!important;border-color:#2b4150!important;
+}
+.global-search input::placeholder,.chatbot-input-row input::placeholder{color:#718794!important}
+.search-results{background:#101d28!important;border-color:#2b4150!important}
+.search-result{color:#e8f0f5!important}
+.search-result:hover{background:#172b38!important}
+.home-page,.component-page,.feature-page{color:#e8f0f5!important}
+.home-hero{border-color:#263b4a!important}
+.home-hero h1,.feature-hero h1,.component-page>h1{color:#f0f5f7!important;letter-spacing:-2.4px!important}
+.home-hero p:not(.eyebrow),.feature-hero p,.component-intro{color:#b1c0c9!important}
+.eyebrow,.ai-label,.game-label{color:#70d1bf!important}
+.hero-subtitle{color:#91a5b2!important}
+.chatbot-launch,.chatbot-panel,.ai-banner,.ai-chat{
+  background:#101d28!important;border-color:#2b4150!important;color:#e8f0f5!important;
+  box-shadow:0 12px 32px rgba(0,0,0,.18)!important;
+}
+.chatbot-launch h2,.chatbot-head strong,.feature-link h3,.section-heading h2{color:#edf4f7!important}
+.chatbot-launch p,.chatbot-head small{color:#9aabb7!important}
+.chatbot-head,.chatbot-input-row{border-color:#293e4c!important}
+.chat-msg.bot{background:#172b38!important;color:#dce8ee!important;border-color:#304958!important}
+.chat-msg.user{background:#63c9b7!important;color:#07151a!important}
+.primary-btn{background:#63c9b7!important;color:#07151a!important;border:1px solid #63c9b7!important}
+.primary-btn:hover{background:#78d8c7!important}
+.secondary-btn{background:#172a38!important;color:#dce8ee!important;border:1px solid #344b5a!important}
+.feature-grid .feature-link,.feature-grid article,.callout,.tool-card,.project-card,
+.component-image,.quick-info,.learning-section,.internal-section,.stat-row>div,
+.road-step,.quiz-panel,.game-panel,.result-card{
+  background:#101d28!important;color:#e8f0f5!important;border:1px solid #293f4e!important;
+  border-radius:9px!important;box-shadow:0 8px 24px rgba(0,0,0,.15)!important;
+}
+.feature-grid .feature-link:hover,.project-card:hover,.internal-card:hover{
+  background:#142633!important;border-color:#4c817c!important;box-shadow:0 12px 28px rgba(0,0,0,.22)!important;
+}
+.feature-grid .feature-link h3,.project-card h2,.tool-card h2,.road-step h2,
+.learning-section h2,.quick-info h2,.internal-card strong{color:#edf4f7!important}
+.feature-grid .feature-link p,.feature-grid p,.callout p,.project-card p,
+.project-card .meta,.road-step p,.tool-card label,.learning-section p,
+.internal-card span,.section-note{color:#9aabb7!important}
+.feature-grid .feature-link strong,.open-guide{color:#70d1bf!important}
+.category-section{border-color:#293f4e!important}
+.category-grid .category,.category,.internal-card{
+  background:#101d28!important;color:#e8f0f5!important;border:1px solid #293f4e!important;
+  border-radius:8px!important;box-shadow:none!important;
+}
+.category-grid .category:hover,.category:hover,.internal-card:hover{
+  background:#142633!important;border-color:#4c817c!important;transform:translateY(-1px)!important;
+}
+.category small{color:#91a5b2!important}
+.category-icon{filter:none!important;color:#70d1bf!important}
+.component-badge{background:#101d28!important;color:#70d1bf!important;border-color:#344b5a!important}
+.fact{border-color:#293f4e!important}.fact span{color:#9aabb7!important}.fact strong{color:#edf4f7!important}
+.quiz-option,.game-option{background:#142431!important;color:#e8f0f5!important;border-color:#304958!important}
+.quiz-option:hover,.game-option:hover{border-color:#63c9b7!important}
+.quiz-option span{background:#203746!important;color:#70d1bf!important}
+.quiz-option.correct{background:rgba(48,158,130,.14)!important}
+.quiz-option.wrong{background:rgba(190,83,83,.14)!important}
+.tool-card output,.project-detail-inner{background:#101d28!important;color:#e8f0f5!important;border-color:#304958!important}
+.project-detail-top h2,.detail-section-title h3,.component-row strong{color:#edf4f7!important}
+.detail-section p,.component-row span,.check-list{color:#a8b7c1!important}
+.component-table,.component-row{border-color:#304653!important}
+.component-head,.working-box,.project-specific,.result-note,.science-box{
+  background:#142431!important;border-color:#304653!important;color:#e8f0f5!important;
+}
+.working-box p,.project-specific p,.result-note p,.science-box p{color:#a8b7c1!important}
+.project-close{background:#172a38!important;color:#e8f0f5!important;border-color:#3a5261!important}
+.safety-section{background:#1b211f!important}
+.site-footer{background:#08121b!important;color:#8195a2!important;border-color:#263b4a!important}
+@media(max-width:900px){
+  .site-header .global-search{display:block!important;flex:1 1 180px!important;min-width:130px!important}
+}
+@media(max-width:700px){
+  .site-header{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:8px!important}
+  .site-header .header-tools{display:flex!important;flex-direction:column!important;align-items:stretch!important;width:100%!important;gap:7px!important}
+  .site-header .global-search{display:block!important;width:100%!important;min-width:0!important}
+  .site-header .feature-nav{width:100%!important;justify-content:flex-start!important;overflow-x:auto!important}
+  .site-header .feature-nav a{font-size:11px!important;padding:7px 9px!important}
+  .home-page{padding-top:26px!important}
+  .home-hero{text-align:left!important}
+  .home-hero h1{font-size:clamp(44px,12vw,64px)!important}
+  .feature-grid.three{grid-template-columns:1fr!important}
+  .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .chatbot-launch{width:100%!important;max-width:none!important}
+}
